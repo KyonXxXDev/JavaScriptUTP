@@ -1,0 +1,98 @@
+[
+  {
+    "nombre": "IDAT",
+    "cantidad": "12",
+    "direccion": "Av. Nicolás Ayllón 836",
+    "distrito": "180101",
+    "provincia": "1801",
+    "departamento": "18",
+    "fecha": "2026-01-18",
+    "createdAt": "2026-01-18T18:53:07.583Z",
+    "updatedAt": null,
+    "id": "af60ceb2-19e8-4b59-a753-3a5c4d08f7a9"
+  },
+  {
+    "nombre": "CD AREQUIPA",
+    "cantidad": "650",
+    "direccion": "AV AREQUIPA LT 334 MZ 1 CRUCE",
+    "distrito": "040104",
+    "provincia": "0401",
+    "departamento": "04",
+    "fecha": "18 de enero de 2026",
+    "createdAt": "2026-01-18T18:54:04.254Z",
+    "updatedAt": null,
+    "id": "41fe74c6-312a-4dbf-a6f0-0b614a0e1c53"
+  },
+  {
+    "nombre": "PLAZA VEA HIGUERETA",
+    "cantidad": "650",
+    "direccion": "Av. Nicolás Ayllón 836",
+    "distrito": "190102",
+    "provincia": "1901",
+    "departamento": "19",
+    "fecha": "18 de enero de 2026",
+    "createdAt": "2026-01-18T18:55:44.931Z",
+    "updatedAt": null,
+    "id": "72855714-36f7-4eea-a247-79d21f2f1cdc"
+  },
+  {
+    "nombre": "Plaza Vea Higuereta",
+    "cantidad": "54",
+    "direccion": "Av. Nicolás Ayllón 836",
+    "distrito": "150116",
+    "provincia": "1501",
+    "departamento": "15",
+    "fecha": "18 de enero de 2026",
+    "createdAt": "2026-01-18T19:56:01.261Z",
+    "updatedAt": null,
+    "id": "2040b3df-790a-4e30-9083-3bf16c683d7e"
+  },
+  {
+    "nombre": "IDAT",
+    "cantidad": "650.00",
+    "direccion": "Av. Nicolás Ayllón 836",
+    "distrito": "170101",
+    "provincia": "1701",
+    "departamento": "MADRE DE DIOS",
+    "fecha": "20 de enero de 2026",
+    "createdAt": "2026-01-21T02:21:35.044Z",
+    "updatedAt": null,
+    "id": "de6afdf8-5bc4-4e1c-bb23-7f380975af4c"
+  },
+  {
+    "nombre": "PVEA CUZCO2",
+    "cantidad": "34",
+    "direccion": "Av. Nicolás Ayllón 836",
+    "distrito": "WANCHAQ",
+    "provincia": "ESPINAR",
+    "departamento": "CUSCO",
+    "fecha": "20 de enero de 2026",
+    "createdAt": "2026-01-21T02:26:29.236Z",
+    "updatedAt": null,
+    "id": "0770a2b2-aacc-44f8-b377-607044e9f026"
+  },
+  {
+    "nombre": "IDAT",
+    "cantidad": "34",
+    "direccion": "Av. Nicolás Ayllón 836",
+    "distrito": "CARUMAS",
+    "provincia": "MARISCAL NIETO",
+    "departamento": "MOQUEGUA",
+    "fecha": "20 de enero de 2026",
+    "createdAt": "2026-01-21T02:32:56.322Z",
+    "updatedAt": null,
+    "id": "fc68f002-7457-4d9f-b59e-8dbccdf107fe"
+  },
+  {
+    "nombre": "IDAT",
+    "cantidad": "45",
+    "direccion": "Av. Nicolás Ayllón 836",
+    "distrito": "HUACHON",
+    "provincia": "PASCO",
+    "departamento": "PASCO",
+    "fecha": "22 de enero de 2026",
+    "createdAt": "2026-01-21T02:33:06.308Z",
+    "updatedAt": null,
+    "id": "5d586797-d23a-4dd9-8f23-6a8414a11e06"
+  }
+]

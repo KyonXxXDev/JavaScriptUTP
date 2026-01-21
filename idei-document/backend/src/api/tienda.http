@@ -1,0 +1,36 @@
+### GET
+GET http://localhost:9000/tienda
+
+### GETBYID
+GET http://localhost:9000/tienda/2bca3e7b-3e54-4e97-85ed-7070bcf2cd2a
+
+### CREATE
+POST http://localhost:9000/tienda
+Content-Type: application/json
+
+{
+  "nombre": "Plaza Vea Higuereta",
+  "cantidad": 69,
+  "direccion": "Av. Siempre Viva 123",
+  "distrito": "Miraflores",
+  "provincia": "Lima",
+  "departamento": "Lima",
+  "fecha": "04-05-2025"
+}
+
+### UPDATE
+PUT http://localhost:9000/tienda/990d55ce-25ec-42c3-9449-92711f4c1919
+Content-Type: application/json
+
+{
+  "nombre": "Plaza Vea Cuzco",
+  "cantidad": 69,
+  "direccion": "Av. Cuzco",
+  "distrito": "Cuzco",
+  "provincia": "Cuzco",
+  "departamento": "Cuzco",
+  "fecha": "04-05-2025"
+}
+
+### DELETE
+DELETE http://localhost:9000/tienda/990d55ce-25ec-42c3-9449-92711f4c1919

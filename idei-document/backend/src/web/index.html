@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generador de Certificados</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>📄 Generador de Certificados</h1>
+        <p class="subtitle">Certificado de Operatividad – Luces de Emergencia</p>
+
+        <div class="form">
+            <div class="form-group">
+                <label for="cantidad">Cantidad de luces</label>
+                <input id="cantidad" name="cantidad" type="number" placeholder="Ej. 98" />
+            </div>
+
+            <div class="form-group">
+                <label for="tienda">Nombre del local / empresa</label>
+                <input id="tienda" name="tienda" type="text" placeholder="Ej. Plaza Vea Tarapoto" />
+            </div>
+
+            <div class="form-group">
+                <label for="direccion">Dirección</label>
+                <input id="direccion" name="direccion" type="text" placeholder="Ej. Av. Cusco N° 123" />
+            </div>
+
+            <div class="grid">
+                <div class="form-group">
+                    <label for="departamento">Departamento</label>
+                    <select id="departamento">
+                        <option value="">Seleccione un departamento</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="provincia">Provincia</label>
+                    <select id="provincia" disabled>
+                        <option value="">Seleccione una provincia</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="distrito">Distrito</label>
+                    <select id="distrito" disabled>
+                        <option value="">Seleccione un distrito</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="fecha">Fecha</label>
+                <input id="fecha" name="fecha" type="date" />
+            </div>
+
+            <button id="btnSubmit" type="button">⚙️ Generar Certificado</button>
+        </div>
+
+        <footer>
+            <small>© 2026 – Sistema de Certificación IDEI</small>
+        </footer>
+    </div>
+    <script>
+        async function formatDate({ fecha }) {
+            try {
+                const partes = fecha.split(/[-/.]/);
+                const year = partes[0];
+                const month = partes[1] - 1;
+                const day = partes[2];
+
+                const date = new Date(year, month, day);
+                const options = {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric'
+                }
+                console.log(date.toLocaleDateString('es-ES', options));
+                return date.toLocaleDateString('es-ES', options);
+            } catch (error) {
+                console.error('Error formatting date', error.message)
+            }
+        }
+        // async function formatDistrito(params) {
+
+        // }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const $ = (id) => document.getElementById(id);
+            const btn = $('btnSubmit');
+            const $cantidad = $('cantidad');
+            const $tienda = $('tienda');
+            const $direccion = $('direccion');
+            const $distrito = $('distrito');
+            const $provincia = $('provincia');
+            const $departamento = $('departamento');
+            const $fecha = $('fecha');
+            const API = 'http://localhost:9000';
+
+            async function loadDepartamentos() {
+                const res = await fetch(`${API}/ubicacion/departamentos`);
+                const data = await res.json();
+
+                data.forEach(dep => {
+                    const option = document.createElement('option');
+                    option.value = dep.id;
+                    option.textContent = dep.name;
+                    $departamento.appendChild(option);
+                });
+            }
+
+            $departamento.addEventListener('change', async () => {
+                const departamentoId = $departamento.value;
+                if (!departamentoId) return;
+                $provincia.innerHTML = '<option value="">Seleccione una provincia</option>';
+                $distrito.innerHTML = '<option value="">Seleccione un distrito</option>';
+                $provincia.disabled = true;
+                $distrito.disabled = true;
+
+                const res = await fetch(
+                    `${API}/ubicacion/departamentos/${departamentoId}/provincias`
+                );
+                const provincias = await res.json();
+
+                provincias.forEach(p => {
+                    const option = document.createElement('option');
+                    option.value = p.id;
+                    option.textContent = p.name;
+                    $provincia.appendChild(option);
+                });
+
+                $provincia.disabled = false;
+            })
+
+            $provincia.addEventListener('change', async () => {
+                const provinciaID = $provincia.value;
+                if (!provinciaID) return;
+                $distrito.innerHTML = '<option value="">Seleccione un distrito</option>';
+                $distrito.disabled = true;
+
+                const res = await fetch(
+                    `${API}/ubicacion/provincias/${provinciaID}/distritos`
+                );
+                const distritos = await res.json();
+
+                distritos.forEach(d => {
+                    const option = document.createElement('option');
+                    option.value = d.id;
+                    option.textContent = d.name;
+                    $distrito.appendChild(option);
+                });
+
+                $distrito.disabled = false;
+            })
+
+
+            btn.addEventListener('click', async (e) => {
+                e.preventDefault();
+
+                const data = {
+                    cantidad: $cantidad.value,
+                    nombre: $tienda.value,
+                    direccion: $direccion.value,
+                    distrito: $distrito.options[$distrito.selectedIndex].text.toUpperCase(),
+                    provincia: $provincia.options[$provincia.selectedIndex].text.toUpperCase(),
+                    departamento: $departamento.options[$departamento.selectedIndex].text.toUpperCase(),
+                    fecha: await formatDate({ fecha: $fecha.value })
+                };
+
+                try {
+                    const res = await fetch(`${API}/tienda`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(data)
+                    });
+
+                    const json = await res.json();
+                    console.log('OK:', json);
+                    alert('✅ Certificado generado');
+                } catch (err) {
+                    console.error(err);
+                    alert('❌ Error al generar certificado');
+                }
+            });
+            loadDepartamentos()
+        });
+    </script>
+</body>
+
+</html>

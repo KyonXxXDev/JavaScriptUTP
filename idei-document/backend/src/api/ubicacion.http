@@ -1,0 +1,7 @@
+### GET DEPARTAMENTOS
+GET http://localhost:9000/ubicacion/departamentos
+### GET PROVINCIAS
+GET http://localhost:9000/ubicacion/departamentos/02/provincias
+
+### GET DISTRITOS
+GET http://localhost:9000/ubicacion/provincias/0201/distritos
