@@ -94,5 +94,77 @@
     "createdAt": "2026-01-21T02:33:06.308Z",
     "updatedAt": null,
     "id": "5d586797-d23a-4dd9-8f23-6a8414a11e06"
+  },
+  {
+    "nombre": "Plaza Vea Higuereta",
+    "cantidad": "5",
+    "direccion": "Av. Nicolás Ayllón 836",
+    "distrito": "HUACHON",
+    "provincia": "PASCO",
+    "departamento": "PASCO",
+    "fecha": "21 de enero de 2026",
+    "createdAt": "2026-01-22T00:22:09.028Z",
+    "updatedAt": null,
+    "id": "aa95a1ab-aad1-4020-9026-5e39c1ccc169"
+  },
+  {
+    "nombre": "PLAZA VEA GIGABY",
+    "cantidad": "05",
+    "direccion": "Av. Nicolás Ayllón 836",
+    "distrito": "HUACHON",
+    "provincia": "PASCO",
+    "departamento": "PASCO",
+    "fecha": "21 de enero de 2026",
+    "createdAt": "2026-01-22T00:24:22.592Z",
+    "updatedAt": null,
+    "id": "3966c3a9-6e5f-49d3-bfc0-be2602ca7eae"
+  },
+  {
+    "nombre": "IDAT",
+    "cantidad": "06",
+    "direccion": "Av. Nicolás Ayllón 836",
+    "distrito": "CARUMAS",
+    "provincia": "MARISCAL NIETO",
+    "departamento": "MOQUEGUA",
+    "fecha": "21 de enero de 2026",
+    "createdAt": "2026-01-22T00:24:54.028Z",
+    "updatedAt": null,
+    "id": "6e6f116c-dc81-4aa6-88b5-18d20665c550"
+  },
+  {
+    "nombre": "PLAZA VEA HIGUERETA",
+    "cantidad": "65",
+    "direccion": "Av. Nicolás Ayllón 836",
+    "distrito": "PUCARA",
+    "provincia": "HUANCAYO",
+    "departamento": "JUNÍN",
+    "fecha": "21 de enero de 2026",
+    "createdAt": "2026-01-22T00:26:17.686Z",
+    "updatedAt": null,
+    "id": "33890a1c-c9a7-420c-a9aa-6edf08d5d7fd"
+  },
+  {
+    "nombre": "PVEA CUZCO2",
+    "cantidad": "45",
+    "direccion": "Av. Nicolás Ayllón 836",
+    "distrito": "HUACHON",
+    "provincia": "PASCO",
+    "departamento": "PASCO",
+    "fecha": "21 de enero de 2026",
+    "createdAt": "2026-01-22T03:39:34.270Z",
+    "updatedAt": null,
+    "id": "d0fa5716-3136-4046-b9b0-578fd5e113ca"
+  },
+  {
+    "nombre": "PLAZA VEA GIGABY",
+    "cantidad": "54",
+    "direccion": "Av. Nicolás Ayllón 836",
+    "distrito": "CHAUPIMARCA",
+    "provincia": "PASCO",
+    "departamento": "PASCO",
+    "fecha": "21 de enero de 2026",
+    "createdAt": "2026-01-22T03:40:23.584Z",
+    "updatedAt": null,
+    "id": "7d436ae0-9330-4248-a5f8-dbfb04cffbbc"
   }
 ]

@@ -33,7 +33,7 @@ app.get("/", (request, response) => {
 //         res.status(500).json({message: error.message})
 //         console.error("Error en generate-certificado", error.message)
 //     }
-    
+
 // });
 app.use("/tienda", TiendasRoutes)
 app.use("/ubicacion", UbicacionesRoutes)
