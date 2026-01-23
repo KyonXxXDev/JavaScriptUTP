@@ -166,5 +166,41 @@
     "createdAt": "2026-01-22T03:40:23.584Z",
     "updatedAt": null,
     "id": "7d436ae0-9330-4248-a5f8-dbfb04cffbbc"
+  },
+  {
+    "nombre": "Universidad UTP",
+    "cantidad": "90",
+    "direccion": "Av. Peru 12312",
+    "distrito": "MOQUEGUA",
+    "provincia": "MARISCAL NIETO",
+    "departamento": "MOQUEGUA",
+    "fecha": "22 de enero de 2026",
+    "createdAt": "2026-01-22T12:31:16.684Z",
+    "updatedAt": null,
+    "id": "64ae6ca7-c3f6-45be-95d8-42150d6f4918"
+  },
+  {
+    "nombre": "Universidad UTP",
+    "cantidad": "90",
+    "direccion": "PERU",
+    "distrito": "CARUMAS",
+    "provincia": "MARISCAL NIETO",
+    "departamento": "MOQUEGUA",
+    "fecha": "22 de enero de 2026",
+    "createdAt": "2026-01-22T12:38:21.658Z",
+    "updatedAt": null,
+    "id": "b94ae014-45d1-46d9-a90d-8026ca798bd5"
+  },
+  {
+    "nombre": "CIVA",
+    "cantidad": "1",
+    "direccion": "Av. 28 de julio cruce con Av. Paseo de la Republica",
+    "distrito": "LINCE",
+    "provincia": "LIMA",
+    "departamento": "LIMA",
+    "fecha": "22 de enero de 2026",
+    "createdAt": "2026-01-22T12:53:23.572Z",
+    "updatedAt": null,
+    "id": "089791ac-1650-4193-89f0-571b92743363"
   }
 ]

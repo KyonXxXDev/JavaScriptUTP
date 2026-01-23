@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Generador de Certificados</title>
+    <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <div class="header-content">
+                <h1>📊 Dashboard - Registro de Certificados</h1>
+                <nav class="nav-links">
+                    <a href="index.html" class="btn-nav">Nuevo Certificado</a>
+                    <span class="separator">|</span>
+                    <a href="dashboard.html" class="btn-nav active">Dashboard</a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="dashboard-main">
+            <section class="stats-section">
+                <div class="stat-card">
+                    <h3>Total de Registros</h3>
+                    <p class="stat-number" id="total-records">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Luces Registradas</h3>
+                    <p class="stat-number" id="total-lights">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Últimos 24h</h3>
+                    <p class="stat-number" id="records-24h">0</p>
+                </div>
+            </section>
+
+            <section class="filters-section">
+                <input 
+                    type="text" 
+                    id="search-input" 
+                    class="search-box" 
+                    placeholder="🔍 Buscar por nombre de tienda..."
+                />
+                <select id="sort-select" class="sort-select">
+                    <option value="newest">Más recientes primero</option>
+                    <option value="oldest">Más antiguos primero</option>
+                    <option value="name">Por nombre (A-Z)</option>
+                    <option value="lights">Por cantidad de luces</option>
+                </select>
+            </section>
+
+            <section class="table-section">
+                <div class="table-wrapper">
+                    <table class="records-table">
+                        <thead>
+                            <tr>
+                                <th>Tienda/Empresa</th>
+                                <th>Cantidad de Luces</th>
+                                <th>Dirección</th>
+                                <th>Departamento</th>
+                                <th>Provincia</th>
+                                <th>Distrito</th>
+                                <th>Fecha</th>
+                                <th>Registrado</th>
+                            </tr>
+                        </thead>
+                        <tbody id="records-body">
+                            <tr class="loading-row">
+                                <td colspan="8">Cargando datos...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="no-records" class="no-records" style="display: none;">
+                    <p>No hay registros que mostrar</p>
+                </div>
+            </section>
+
+            <section class="export-section">
+                <button id="export-btn" class="btn-export">Descargar en CSV</button>
+                <button id="refresh-btn" class="btn-refresh">Actualizar</button>
+            </section>
+        </main>
+
+        <footer class="dashboard-footer">
+            <p>&copy; 2026 Generador de Certificados - Dashboard</p>
+        </footer>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

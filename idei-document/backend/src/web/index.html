@@ -11,7 +11,10 @@
 <body>
 
     <div class="container">
-        <h1>📄 Generador de Certificados</h1>
+        <div class="header-nav">
+            <h1>📄 Generador de Certificados</h1>
+            <a href="dashboard.html" class="dashboard-link">📊 Dashboard</a>
+        </div>
         <p class="subtitle">Certificado de Operatividad – Luces de Emergencia</p>
 
         <div class="form">
@@ -99,7 +102,7 @@
             const $provincia = $('provincia');
             const $departamento = $('departamento');
             const $fecha = $('fecha');
-            const API = 'http://localhost:9000';
+            const API = 'http://localhost:3000';
 
             async function loadDepartamentos() {
                 const res = await fetch(`${API}/ubicacion/departamentos`);
