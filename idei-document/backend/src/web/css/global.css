@@ -1,0 +1,182 @@
+:root {
+  /* Colores principales */
+  --color-primary: #6366f1;
+  /* índigo vibrante - acento principal */
+  --color-primary-dark: #4f46e5;
+  --color-primary-light: #818cf8;
+  --color-accent: #ec4899;
+  /* magenta/rosa para highlights */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+
+  /* Fondo y superficies (dark mode base) */
+  --bg-body: #0f172a;
+  /* slate-950 */
+  --bg-surface: #1e293b;
+  /* slate-800 - cards, contenedores */
+  --bg-surface-hover: #334155;
+  /* slate-700 - hover states */
+  --bg-elevated: #111827;
+  /* slate-900 */
+
+  /* Bordes y separadores */
+  --border: #334155;
+  --border-strong: #475569;
+
+  /* Textos */
+  --text-primary: #f1f5f9;
+  /* slate-100 */
+  --text-secondary: #cbd5e1;
+  /* slate-300 */
+  --text-muted: #94a3b8;
+  /* slate-400 */
+  --text-inverse: #0f172a;
+
+  /* Tipografía y espaciado */
+  --font-main: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --radius-lg: 16px;
+  --shadow-sm: 0 4px 6px -1px rgb(0 0 0 / 0.2), 0 2px 4px -2px rgb(0 0 0 / 0.15);
+  --shadow: 0 10px 15px -3px rgb(0 0 0 / 0.25), 0 4px 6px -4px rgb(0 0 0 / 0.2);
+  --transition: all 0.18s ease;
+
+  /* Layout */
+  --sidebar-width: 220px;
+}
+
+/* Reset básico + base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-main);
+  background: var(--bg-body);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.grid-page {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "sidebar main"
+    "footer footer";
+  grid-template-columns: var(--sidebar-width) 1fr;
+  grid-template-rows: 64px 1fr 48px;
+  height: 100vh;
+}
+
+.header {
+  grid-area: header;
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.logo .icon {
+  font-size: 1.5rem;
+}
+
+.avatar {
+  width: 38px;
+  height: 38px;
+  background: var(--bg-surface-hover);
+  border-radius: 50%;
+  border: 2px solid var(--color-primary);
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background: var(--bg-elevated);
+  padding: 1.5rem 1rem;
+  border-right: 1px solid var(--border);
+}
+
+.sidebar ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sidebar a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 0.85rem 1.1rem;
+  border-radius: var(--radius);
+  transition: var(--transition);
+  font-weight: 500;
+}
+
+.sidebar a:hover {
+  background: var(--bg-surface-hover);
+  color: var(--text-primary);
+}
+
+.sidebar a.active {
+  background: var(--color-primary);
+  color: white;
+}
+
+.separator {
+  height: 1px;
+  background: var(--border);
+  margin: 1.5rem 0;
+}
+
+.main {
+  grid-area: main;
+  padding: 1.5rem;
+  background: var(--bg-body);
+}
+
+.iframe-container {
+  height: 100%;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--bg-surface);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.footer {
+  grid-area: footer;
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}

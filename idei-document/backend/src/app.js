@@ -18,7 +18,7 @@ app.use(cors());
 app.use(express.static(join(__dirname, 'web')));
 
 app.get("/", (request, response) => {
-    response.sendFile(join(__dirname, 'web', 'index.html'));
+    response.sendFile(join(__dirname, 'web', './pages/index.html'));
 });
 
 // app.post("/generate-certificado", async (req, res) => {

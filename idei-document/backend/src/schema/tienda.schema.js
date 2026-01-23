@@ -21,5 +21,4 @@ export class Tienda {
     this.createdAt = new Date();
     this.updatedAt = null;
   }
-  
 }

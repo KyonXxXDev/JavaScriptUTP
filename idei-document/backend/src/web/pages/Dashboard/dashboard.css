@@ -50,7 +50,7 @@ body {
     margin-bottom: 0;
 }
 
-.nav-links {
+/* .nav-links {
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -71,7 +71,7 @@ body {
 
 .btn-nav.active {
     background: var(--secondary-color);
-}
+} */
 
 .separator {
     color: rgba(255, 255, 255, 0.5);
@@ -225,6 +225,7 @@ body {
     display: flex;
     gap: 1rem;
     justify-content: center;
+    align-items: center;
     margin-bottom: 2rem;
 }
 
