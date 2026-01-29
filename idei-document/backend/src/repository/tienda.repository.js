@@ -2,6 +2,7 @@ import fs from 'node:fs/promises';
 import crypto from "node:crypto";
 import { Tienda } from "../schema/tienda.schema.js";
 import { htmlToPDF, renderTemplate } from '../utils/converterToPDF.js';
+import { imageToBase64 } from '../utils/imageToBase64.js';
 
 const DB_PATH = "./src/mocks/tiendas.json";
 
@@ -30,6 +31,10 @@ export class TiendaRepository {
 
         const tienda = new Tienda({ data });
         tienda.id = crypto.randomUUID();
+
+        data.logo = await imageToBase64("src/assets/Logo-idei.jpg");
+        data.firmaGerente = await imageToBase64("src/assets/Firma-gerente.png");
+        data.firmaIng = await imageToBase64("src/assets/Firma-ing.jpg");
 
         const html = await renderTemplate(
             './src/template/Template.html',

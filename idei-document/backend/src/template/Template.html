@@ -119,6 +119,10 @@
         flex-direction: column;
         align-items: center;
     }
+
+    .certificate__footer-text {
+        font-weight: bold;
+    }
 </style>
 
 <body>
@@ -127,7 +131,7 @@
         <header class="certificate__header">
             <section class="certificate__header-content">
                 <div class="certificate__logo-box">
-                    <img class="certificate__logo" src="Logo-idei.jpg" alt="logo-idei">
+                    <img class="certificate__logo" src="{{logo}}" alt="logo-idei">
                 </div>
                 <div class="certificate__company">
                     <p class="certificate__company-line">ILUMINACIÓN Y DISEÑO</p>
@@ -142,14 +146,17 @@
 
             <section class="certificate__section">
                 <p class="certificate__text">Mediante la presente, la empresa ILUMINACIÓN Y DISEÑO ELECTRÓNICO
-                    INDUSTRIAL PERÚ S.A.C. (IDEI PERU) con R.U.C. 20553407657 representada por el Ing. Miguel Eduardo
-                    Llaguno Rubio con D.N.I. N°46332333; y con la revisión y aprobación del Ing. Julio Celso Espinoza
-                    Torres, con Registro del Colegio de Ingenieros del Perú N°19828, con registro de habilidad vigente y
-                    habilitado para ejercer la profesión, luego de realizar la verificación de los equipos, de efectuar
-                    las habilitado para ejercer la profesión, luego de realizar la verificación de los equipos, de
-                    efectuar las {{nombre}}, ubicada en {{direccion}}, en el distrito de {{distrito}}, provincia de
-                    {{provincia}} y departamento de {{departamento}}, se encontraron 100% operativas. A continuación, se
-                    muestran las características técnicas de los dispositivos en mención:</p>
+                    INDUSTRIAL PERÚ S.A.C. (IDEI PERU) con R.U.C. 20553407657 representada por el Ing.
+                    Miguel Eduardo Llaguno Rubio con D.N.I 46332333; y con la revisión y aprobación del Ing.
+                    Julio Celso Espinoza Torres, con Registro del Colegio de Ingenieros del Perú N° 19828, con
+                    registro de habilidad vigente y habilitado para ejercer la profesión, luego de realizar la
+                    verificación de los equipos, de efectuar las pruebas y ensayos respectivos, certifica que las
+                    ({{cantidad}})
+                    Luces de Emergencia que posee la empresa <b>{{COMPAÑÍA FOOD RETAIL S.A.C.}}</b> con R.U.C.
+                    {{20608300393}} en su tienda <b>{{nombre}}</b> de <b>{{direccion}}</b>, en el distrito de
+                    {{distrito}}, provincia de {{provincia}} y departamento de {{departamento}}, se
+                    encontraron <b>100% operativas.</b> A continuación, se muestran las características técnicas de los
+                    dispositivos en mención:</p>
             </section>
 
             <section class="certificate__section certificate__section--technical">
@@ -168,30 +175,33 @@
                     La presente Certificación se mantiene vigente durante 12 meses mientras no se realicen cambios y/o
                     reparaciones a los equipos.
                 </p>
-                <p class="certificate__text">Lima, {fecha}.</p>
+                <p class="certificate__text">Lima, {{fecha}}.</p>
             </section>
 
             <section class="certificate__signatures">
                 <div class="certificate__signature">
-                    <img class="certificate__signature-image-1" alt="firma-gerente">
+                    <img class="certificate__signature-image-1" id="img-1" src="{{firmaGerente}}" alt="firma-gerente">
                 </div>
                 <div class="certificate__signature">
-                    <img class="certificate__signature-image-2" src="Firma-ing.jpg" alt="firma-ingeniero">
+                    <img class="certificate__signature-image-2" id="img-2" src="{{firmaIng}}" alt="firma-ingeniero">
                 </div>
             </section>
         </main>
 
         <footer class="certificate__footer">
             <section class="certificate__footer-content">
-                <p class="certificate__footer-text">Página Web: www.ideiperu.com</p>
-                <p class="certificate__footer-text">E-mail: ventas@ideiperu.com, info@ideiperu.com</p>
-                <p class="certificate__footer-text">Tel: 697-3160 | Móvil: 980302897 | 997755769 | 958452782</p>
+                <p class="certificate__footer-text">Página Web: <a href="www.ideiperu.com">www.ideiperu.com</a></p>
+                <p class="certificate__footer-text">E-mail: <a href="/">ventas@ideiperu.com</a>, <a
+                        href="/">info@ideiperu.com</a></p>
+                <p class="certificate__footer-text">Tel: <span style="font-weight: 200;">697-3160</span> | Móvil: <span
+                        style="font-weight: 200;">980302897</span> | <span style="font-weight: 200;">997755769</span> |
+                    <span style="font-weight: 200;">958452782</span></p>
                 <p class="certificate__footer-text">
-                    Dirección: Jr. Von Leonard Philipp 314 Urb. Corpac, San Borja, Lima-Perú
+                    <span style="font-weight: 200;">Dirección: Jr. Von Leonard Philipp 314 Urb. Corpac, San Borja,
+                        Lima-Perú</span>
                 </p>
             </section>
         </footer>
     </div>
 </body>
-
 </html>

@@ -70,7 +70,7 @@ class Formulario{
             departamento: this.getSelectedText(this.$departamento),
             provincia: this.getSelectedText(this.$provincia),
             distrito: this.getSelectedText(this.$distrito),
-            fecha: DateUtils.formatDate(this.$fecha.value)
+            fecha: DateUtils.formatDate({fecha: this.$fecha.value})
         };
 
         await ApiService.post({url:'/tienda', data});
