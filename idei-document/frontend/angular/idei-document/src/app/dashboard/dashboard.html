@@ -1,0 +1,55 @@
+<div class="dashboard-container">
+    <main class="dashboard-main">
+        <section class="stats-section">
+            <div class="stat-card">
+                <h3>Total de Registros</h3>
+                <p class="stat-number" id="total-records">0</p>
+            </div>
+            <div class="stat-card">
+                <h3>Luces Registradas</h3>
+                <p class="stat-number" id="total-lights">0</p>
+            </div>
+            <div class="stat-card">
+                <h3>Últimos 24h</h3>
+                <p class="stat-number" id="records-24h">0</p>
+            </div>
+        </section>
+
+        <section class="filters-section">
+            <input type="text" id="search-input" class="search-box" placeholder="🔍 Buscar por nombre de tienda..." />
+            <select id="sort-select" class="sort-select">
+                <option value="newest">Más recientes primero</option>
+                <option value="oldest">Más antiguos primero</option>
+                <option value="name">Por nombre (A-Z)</option>
+                <option value="lights">Por cantidad de luces</option>
+            </select>
+        </section>
+
+        <section class="table-section">
+            <div class="table-wrapper">
+                <table class="records-table">
+                    <thead>
+                        <tr>
+                            <th>Tienda/Empresa</th>
+                            <th>Cantidad de Luces</th>
+                            <th>Dirección</th>
+                            <th>Departamento</th>
+                            <th>Provincia</th>
+                            <th>Distrito</th>
+                            <th>Fecha</th>
+                            <th>Registrado</th>
+                        </tr>
+                    </thead>
+                    <tbody id="records-body">
+                        <tr class="loading-row">
+                            <td colspan="8">Cargando datos...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="no-records" class="no-records" style="display: none;">
+                <p>No hay registros que mostrar</p>
+            </div>
+        </section>
+    </main>
+</div>
