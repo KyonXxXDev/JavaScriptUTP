@@ -1,3 +1,5 @@
+import { DateUtils } from "../web/js/global.js";
+
 export class Tienda {
   constructor({ data }) {
     const {
@@ -16,7 +18,7 @@ export class Tienda {
     this.distrito = distrito;
     this.provincia = provincia;
     this.departamento = departamento;
-    this.fecha = fecha;
+    this.fecha = DateUtils.formatDate({fecha});
 
     this.createdAt = new Date();
     this.updatedAt = null;

@@ -8,6 +8,10 @@
     --text-dim: #94a3b8;
   }
 
+  * {
+    box-sizing: border-box;
+  }
+
   .admin-container {
     height: 100vh;
     background-color: #f1f5f9;
@@ -17,7 +21,9 @@
   /* Sidebar Styling */
   .sidebar-drawer {
     width: 260px;
-    border: none !important;
+    box-shadow: 3px 3px 10px 0px #000000;
+    margin: 20px 0px 20px 10px;
+    border-radius: 24px;
     background-color: var(--sidebar-bg) !important;
     color: white;
   }
@@ -109,14 +115,11 @@
     box-shadow: 2px 0 10px rgba(201, 162, 39, 0.5);
   }
 
-  /* Main Content Area */
-  .main-content {
-    background-color: #f8fafc !important;
-  }
-
   .page-container {
     background: white;
-    min-height: 100%;
+    overflow-y: auto;
+    flex: 1;
+    margin: 20px;
     border-radius: 24px;
     padding: 30px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
@@ -158,71 +161,80 @@
     color: var(--text-dim);
     margin: 0;
   }
+
   .sidebar-handle-bar {
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 12px; /* Área de contacto */
-  cursor: pointer;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.3s;
-}
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 12px;
+    /* Área de contacto */
+    cursor: pointer;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+  }
 
-/* Línea sutil al hacer hover sobre la zona de la barra */
-.sidebar-handle-bar:hover {
-  background: rgba(201, 162, 39, 0.05); /* Brillo dorado muy tenue */
-}
+  /* Línea sutil al hacer hover sobre la zona de la barra */
+  .sidebar-handle-bar:hover {
+    background: rgba(201, 162, 39, 0.05);
+    /* Brillo dorado muy tenue */
+  }
 
-/* El botón circular con la flecha */
-.handle-button {
-  width: 24px;
-  height: 24px;
-  background: var(--accent); /* Tu color #C9A227 */
-  color: #0f172a; /* Fondo oscuro del sidebar para contraste */
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  position: relative;
-  left: -12px; /* Lo posicionamos justo en el borde */
-  opacity: 0.2; /* Casi invisible por defecto */
-}
+  /* El botón circular con la flecha */
+  .handle-button {
+    width: 24px;
+    height: 24px;
+    background: var(--accent);
+    /* Tu color #C9A227 */
+    color: #0f172a;
+    /* Fondo oscuro del sidebar para contraste */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    left: 0;
+    /* Lo posicionamos justo en el borde */
+    opacity: 0.2;
+    /* Casi invisible por defecto */
+  }
 
-/* Al pasar el mouse por la barra o el botón, se ilumina */
-.sidebar-handle-bar:hover .handle-button {
-  opacity: 1;
-  left: 0;
-  transform: scale(1.1);
-}
+  /* Al pasar el mouse por la barra o el botón, se ilumina */
+  .sidebar-handle-bar:hover .handle-button {
+    opacity: 1;
+    left: 12px;
+    transform: scale(1.1);
+  }
 
-.handle-button svg {
-  width: 14px;
-  height: 14px;
-}
+  .handle-button svg {
+    width: 14px;
+    height: 14px;
+  }
 
-/* Rotación de la flecha cuando el sidebar está cerrado */
-.handle-button.is-closed {
-  transform: rotate(180deg);
-  opacity: 1;
-  left: 6px; /* Se despega un poco de la pared cuando está cerrado */
-}
+  /* Rotación de la flecha cuando el sidebar está cerrado */
+  .handle-button.is-closed {
+    transform: rotate(180deg);
+    opacity: 1;
+    left: 6px;
+    /* Se despega un poco de la pared cuando está cerrado */
+  }
 
-.handle-button.is-closed:hover {
-  transform: rotate(180deg) scale(1.2);
-}
+  .handle-button.is-closed:hover {
+    transform: rotate(180deg) scale(1.2);
+  }
 
-/* Ajuste del page-shell para que no choque con la barra */
-.page-shell {
-  position: relative;
-  height: 100%;
-  padding-left: 10px; 
-}
+  /* Ajuste del page-shell para que no choque con la barra */
+  .page-shell {
+    position: relative;
+    height: 100%;
+    display: flex;
+    padding-left: 10px;
+  }
 </style>
 
 <mat-drawer-container class="admin-container">
@@ -271,13 +283,14 @@
       </div>
 
     </div>
-    
+
   </mat-drawer>
-  
+
   <mat-drawer-content class="main-content">
     <div class="sidebar-handle-bar" (click)="drawer.toggle()">
       <div class="handle-button" [class.is-closed]="!drawer.opened">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+          stroke-linecap="round" stroke-linejoin="round">
           <polyline points="15 18 9 12 15 6"></polyline>
         </svg>
       </div>
@@ -289,5 +302,3 @@
     </div>
   </mat-drawer-content>
 </mat-drawer-container>
-
-

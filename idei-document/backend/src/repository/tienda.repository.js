@@ -32,15 +32,15 @@ export class TiendaRepository {
         const tienda = new Tienda({ data });
         tienda.id = crypto.randomUUID();
 
-        data.logo = await imageToBase64("src/assets/Logo-idei.jpg");
-        data.firmaGerente = await imageToBase64("src/assets/Firma-gerente.png");
-        data.firmaIng = await imageToBase64("src/assets/Firma-ing.jpg");
+        tienda.logo = await imageToBase64("src/assets/Logo-idei.jpg");
+        tienda.firmaGerente = await imageToBase64("src/assets/Firma-gerente.png");
+        tienda.firmaIng = await imageToBase64("src/assets/Firma-ing.jpg");
 
         const html = await renderTemplate(
             './src/template/Template.html',
-            data
+            tienda
         );
-        const pdfPath = `./src/output/${data.nombre}.pdf`;
+        const pdfPath = `./src/output/${tienda.nombre}.pdf`;
         await htmlToPDF(html, pdfPath);
 
         tiendas.push(tienda);

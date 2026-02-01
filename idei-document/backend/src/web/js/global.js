@@ -1,7 +1,7 @@
 export class DateUtils {
     static formatDate({ fecha }) {
         try {
-            const [year, month, day] = fecha.split(/[-/.]/);
+            const [day, month, year ] = fecha.split(/[-/.]/);
             const date = new Date(year, month, day);
             const options = {
                 day: 'numeric',

@@ -1,12 +1,10 @@
 /* Dashboard Styles */
 :root {
-    --primary-color: #2c3e50;
-    --secondary-color: #3498db;
-    --accent-color: #e74c3c;
-    --success-color: #27ae60;
-    --light-bg: #ecf0f1;
-    --border-color: #bdc3c7;
-    --text-color: #2c3e50;
+    --primary-dark: #0f172a;
+    --accent-gold: #C9A227;
+    --text-dim: #94a3b8;
+    --bg-light: #f8fafc;
+    --border-color: #e2e8f0;
 }
 
 * {
@@ -15,23 +13,15 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #1f2933, #111827);
-    min-height: 100vh;
-    color: var(--text-color);
+.dashboard-container {
+    background: transparent;
+    padding: 0;
 }
 
-.dashboard-container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
 
 /* Header */
 .dashboard-header {
     background: linear-gradient(135deg, var(--primary-color) 0%, #34495e 100%);
-    color: white;
     padding: 2rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -89,7 +79,7 @@ body {
 /* Stats Section */
 .stats-section {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 1.5rem;
     margin-bottom: 2rem;
 }
@@ -175,7 +165,6 @@ body {
 
 .records-table thead {
     background: linear-gradient(135deg, var(--primary-color) 0%, #34495e 100%);
-    color: white;
 }
 
 .records-table th {
@@ -231,6 +220,7 @@ body {
 
 .btn-export,
 .btn-refresh {
+    background: var(--primary-dark);
     padding: 0.75rem 1.5rem;
     border: none;
     border-radius: 4px;
@@ -242,7 +232,6 @@ body {
 
 .btn-export {
     background: var(--success-color);
-    color: white;
 }
 
 .btn-export:hover {
@@ -252,7 +241,6 @@ body {
 
 .btn-refresh {
     background: var(--secondary-color);
-    color: white;
 }
 
 .btn-refresh:hover {
@@ -268,7 +256,6 @@ body {
 /* Footer */
 .dashboard-footer {
     background: var(--primary-color);
-    color: white;
     text-align: center;
     padding: 1.5rem;
     margin-top: auto;
@@ -332,6 +319,7 @@ body {
         opacity: 0;
         transform: translateY(10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);

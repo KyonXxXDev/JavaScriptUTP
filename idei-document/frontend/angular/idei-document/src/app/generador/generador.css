@@ -1,121 +1,116 @@
 * {
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-body {
   margin: 0;
-  background: linear-gradient(135deg, #1f2933, #111827);
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #e5e7eb;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* Contenedor del Formulario */
 .container {
-  background: #1f2937;
-  padding: 2.5rem;
-  width: 100%;
-  max-width: 650px;
-  border-radius: 16px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-}
-
-h1 {
-  margin-top: 0;
-  text-align: center;
-  font-size: 1.8rem;
-}
-
-.header-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-}
-
-.header-nav h1 {
-  flex: 1;
-}
-
-.dashboard-link {
-  display: inline-block;
-  padding: 0.6rem 1.2rem;
-  background: #3b82f6;
-  text-decoration: none;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  transition: background 0.3s;
-  white-space: nowrap;
-}
-
-.dashboard-link:hover {
-  background: #2563eb;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .subtitle {
-  text-align: center;
-  color: #9ca3af;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--sidebar-bg);
   margin-bottom: 2rem;
+  border-left: 5px solid var(--accent);
+  padding-left: 15px;
+}
+
+/* Estructura del Formulario */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
-  margin-bottom: 1rem;
+  gap: 8px;
 }
 
+/* Etiquetas */
 label {
   font-size: 0.85rem;
-  margin-bottom: 0.4rem;
-  color: #d1d5db;
+  font-weight: 600;
+  color: #64748b;
+  /* Slate 500 */
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-input {
-  padding: 0.6rem 0.7rem;
-  border-radius: 8px;
-  border: none;
-  background: #374151;
-  color: #f9fafb;
+/* Inputs y Selects */
+input,
+select {
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  background-color: #f8fafc;
+  color: var(--sidebar-bg);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+input:focus,
+select:focus {
   outline: none;
+  border-color: var(--accent);
+  background-color: white;
+  box-shadow: 0 0 0 4px rgba(201, 162, 39, 0.1);
 }
 
 input::placeholder {
-  color: #9ca3af;
+  color: #cbd5e1;
 }
 
-input:focus {
-  outline: 2px solid #3b82f6;
-}
-
-.grid {
+/* Grilla para Ubicación (Dpto/Prov/Dist) */
+.grid-location {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 20px;
 }
 
-button {
-  margin-top: 1.5rem;
-  width: 100%;
-  padding: 0.9rem;
-  border-radius: 10px;
-  border: none;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  background: linear-gradient(135deg, #2563eb, #3b82f6);
+@media (min-width: 768px) {
+  .grid-location {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Botón de Acción */
+#btnSubmit {
+  margin-top: 10px;
+  background-color: var(--sidebar-bg);
   color: white;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  padding: 16px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid transparent;
 }
 
-button:hover {
+#btnSubmit:hover {
+  background-color: var(--accent);
+  color: black;
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(59,130,246,0.4);
+  box-shadow: 0 10px 15px -3px rgba(201, 162, 39, 0.3);
 }
 
-footer {
-  text-align: center;
-  margin-top: 2rem;
-  color: #9ca3af;
+#btnSubmit:active {
+  transform: translateY(0);
+}
+
+/* Estilo para los selects deshabilitados */
+select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: #f1f5f9;
 }
