@@ -14,20 +14,21 @@
         <section class="stats-section">
             <div class="stat-card">
                 <h3>Total de Registros</h3>
-                <p class="stat-number" id="total-records">0</p>
+                <p class="stat-number" id="total-records">{{ totalRecords }}</p>
             </div>
             <div class="stat-card">
                 <h3>Luces Registradas</h3>
-                <p class="stat-number" id="total-lights">0</p>
+                <p class="stat-number" id="total-lights">{{ totalLights | number }}</p>
             </div>
             <div class="stat-card">
                 <h3>Últimos 24h</h3>
-                <p class="stat-number" id="records-24h">0</p>
+                <p class="stat-number" id="records-24h">{{ last24h }}</p>
             </div>
         </section>
 
         <section class="filters-section">
-            <input type="text" id="search-input" class="search-box" placeholder="🔍 Buscar por nombre de tienda..." />
+            <input type="text" id="search-input" class="search-box" placeholder="🔍 Buscar por nombre de tienda..."
+                [(ngModel)]="sortType" (change)="applySort()" />
             <select id="sort-select" class="sort-select">
                 <option value="newest">Más recientes primero</option>
                 <option value="oldest">Más antiguos primero</option>
@@ -52,8 +53,15 @@
                         </tr>
                     </thead>
                     <tbody id="records-body">
-                        <tr class="loading-row">
-                            <td colspan="8">Cargando datos...</td>
+                        <tr class="loading-row" *ngFor="let record of filteredRecords">
+                            <td><strong>{{ record.nombre }}</strong></td>
+                            <td><span class="badge">{{ record.cantidad }}</span></td>
+                            <td>{{ record.direccion || '-' }}</td>
+                            <td>{{ record.departamento }}</td>
+                            <td>{{ record.provincia }}</td>
+                            <td>{{ record.distrito }}</td>
+                            <td>{{ record.fecha || '-' }}</td>
+                            <td>{{ record.createdAt | date:'dd MMM yyyy HH:mm' }}</td>
                         </tr>
                     </tbody>
                 </table>
