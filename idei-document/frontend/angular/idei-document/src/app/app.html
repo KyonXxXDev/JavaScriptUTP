@@ -1,0 +1,304 @@
+<style>
+  :host {
+    --sidebar-bg: #0f172a;
+    /* Slate 900 */
+    --accent: #C9A227;
+    /* El Dorado IDEI */
+    --nav-hover: rgba(255, 255, 255, 0.05);
+    --text-dim: #94a3b8;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  .admin-container {
+    height: 100vh;
+    background-color: #f1f5f9;
+    /* Gris ultra claro para el fondo */
+  }
+
+  /* Sidebar Styling */
+  .sidebar-drawer {
+    width: 260px;
+    box-shadow: 3px 3px 10px 0px #000000;
+    margin: 20px 0px 20px 10px;
+    border-radius: 24px;
+    background-color: var(--sidebar-bg) !important;
+    color: white;
+  }
+
+  .sidebar-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  /* Logo */
+  .logo-section {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    gap: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .logo-icon {
+    background: var(--accent);
+    color: black;
+    font-weight: 800;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(201, 162, 39, 0.3);
+  }
+
+  .logo-text {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+
+  .text-accent {
+    color: var(--accent);
+  }
+
+  /* Navigation Links */
+  .nav-container {
+    flex: 1;
+    padding: 20px 12px;
+  }
+
+  .nav-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 16px;
+    color: var(--text-dim);
+    text-decoration: none;
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 4px;
+    position: relative;
+  }
+
+  .nav-link:hover {
+    background-color: var(--nav-hover);
+    color: white;
+    transform: translateX(4px);
+  }
+
+  /* Estado Activo */
+  .active-link {
+    background-color: rgba(201, 162, 39, 0.1) !important;
+    color: var(--accent) !important;
+    font-weight: 600;
+  }
+
+  .active-link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    height: 60%;
+    width: 4px;
+    background: var(--accent);
+    border-radius: 0 4px 4px 0;
+    box-shadow: 2px 0 10px rgba(201, 162, 39, 0.5);
+  }
+
+  .page-container {
+    background: white;
+    overflow-y: auto;
+    flex: 1;
+    margin: 20px;
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    border: 1px solid #e2e8f0;
+  }
+
+  /* Footer Perfil */
+  .user-footer {
+    padding: 20px;
+    margin: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .avatar {
+    width: 40px;
+    height: 40px;
+    background: #334155;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .user-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .user-role {
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    margin: 0;
+  }
+
+  .sidebar-handle-bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 12px;
+    /* Área de contacto */
+    cursor: pointer;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+  }
+
+  /* Línea sutil al hacer hover sobre la zona de la barra */
+  .sidebar-handle-bar:hover {
+    background: rgba(201, 162, 39, 0.05);
+    /* Brillo dorado muy tenue */
+  }
+
+  /* El botón circular con la flecha */
+  .handle-button {
+    width: 24px;
+    height: 24px;
+    background: var(--accent);
+    /* Tu color #C9A227 */
+    color: #0f172a;
+    /* Fondo oscuro del sidebar para contraste */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    left: 0;
+    /* Lo posicionamos justo en el borde */
+    opacity: 0.2;
+    /* Casi invisible por defecto */
+  }
+
+  /* Al pasar el mouse por la barra o el botón, se ilumina */
+  .sidebar-handle-bar:hover .handle-button {
+    opacity: 1;
+    left: 12px;
+    transform: scale(1.1);
+  }
+
+  .handle-button svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  /* Rotación de la flecha cuando el sidebar está cerrado */
+  .handle-button.is-closed {
+    transform: rotate(180deg);
+    opacity: 1;
+    left: 6px;
+    /* Se despega un poco de la pared cuando está cerrado */
+  }
+
+  .handle-button.is-closed:hover {
+    transform: rotate(180deg) scale(1.2);
+  }
+
+  /* Ajuste del page-shell para que no choque con la barra */
+  .page-shell {
+    position: relative;
+    height: 100%;
+    display: flex;
+    padding-left: 10px;
+  }
+</style>
+
+<mat-drawer-container class="admin-container">
+  <mat-drawer #drawer mode="side" opened class="sidebar-drawer">
+    <div class="sidebar-wrapper">
+      <div class="logo-section">
+        <div class="logo-icon">IP</div>
+        <h3 class="logo-text">
+          IDEI-<span class="text-accent">PERU</span>
+        </h3>
+      </div>
+
+
+      <nav class="nav-container">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }"
+              class="nav-link">
+              <span class="icon">🏠</span>
+              <span class="link-text">Home</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a routerLink="/dashboard" routerLinkActive="active-link" class="nav-link">
+              <span class="icon">📊</span>
+              <span class="link-text">Dashboard</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a routerLink="/generator" routerLinkActive="active-link" class="nav-link">
+              <span class="icon">📄</span>
+              <span class="link-text">Certificados</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="user-footer">
+        <div class="avatar">JD</div>
+        <div class="user-info">
+          <p class="user-name">Admin User</p>
+          <p class="user-role">Super Admin</p>
+        </div>
+      </div>
+
+    </div>
+
+  </mat-drawer>
+
+  <mat-drawer-content class="main-content">
+    <div class="sidebar-handle-bar" (click)="drawer.toggle()">
+      <div class="handle-button" [class.is-closed]="!drawer.opened">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </div>
+    </div>
+    <div class="page-shell">
+      <div class="page-container">
+        <router-outlet />
+      </div>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

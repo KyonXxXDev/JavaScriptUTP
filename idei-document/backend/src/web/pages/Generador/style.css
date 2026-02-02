@@ -28,6 +28,32 @@ h1 {
   font-size: 1.8rem;
 }
 
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-nav h1 {
+  flex: 1;
+}
+
+.dashboard-link {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background: #3b82f6;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  transition: background 0.3s;
+  white-space: nowrap;
+}
+
+.dashboard-link:hover {
+  background: #2563eb;
+}
+
 .subtitle {
   text-align: center;
   color: #9ca3af;

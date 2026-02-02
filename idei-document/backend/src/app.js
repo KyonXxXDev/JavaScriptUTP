@@ -1,8 +1,13 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import { fileURLToPath } from 'node:url';
+import { dirname, join } from 'node:path';
 import TiendasRoutes from './routes/tiendas.route.js';
 import UbicacionesRoutes from './routes/ubicaciones.route.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 dotenv.config();
 const app = express();
@@ -10,9 +15,10 @@ const app = express();
 app.disable('x-powered-by');
 app.use(express.json());
 app.use(cors());
+app.use(express.static(join(__dirname, 'web')));
 
 app.get("/", (request, response) => {
-    response.send('<h1>Hello world</h1>');
+    response.sendFile(join(__dirname, 'web', './pages/index.html'));
 });
 
 // app.post("/generate-certificado", async (req, res) => {
@@ -33,7 +39,7 @@ app.get("/", (request, response) => {
 //         res.status(500).json({message: error.message})
 //         console.error("Error en generate-certificado", error.message)
 //     }
-    
+
 // });
 app.use("/tienda", TiendasRoutes)
 app.use("/ubicacion", UbicacionesRoutes)

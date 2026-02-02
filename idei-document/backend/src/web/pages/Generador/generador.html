@@ -11,7 +11,9 @@
 <body>
 
     <div class="container">
-        <h1>📄 Generador de Certificados</h1>
+        <div class="header-nav">
+            <h1>📄 Generador de Certificados</h1>
+        </div>
         <p class="subtitle">Certificado de Operatividad – Luces de Emergencia</p>
 
         <div class="form">
@@ -65,7 +67,8 @@
             <small>© 2026 – Sistema de Certificación IDEI</small>
         </footer>
     </div>
-    <script>
+    <script type="module" src="./generador.js"></script>
+    <!-- <script>
         async function formatDate({ fecha }) {
             try {
                 const partes = fecha.split(/[-/.]/);
@@ -99,10 +102,9 @@
             const $provincia = $('provincia');
             const $departamento = $('departamento');
             const $fecha = $('fecha');
-            const API = 'http://localhost:9000';
 
             async function loadDepartamentos() {
-                const res = await fetch(`${API}/ubicacion/departamentos`);
+                const res = await fetch(`/ubicacion/departamentos`);
                 const data = await res.json();
 
                 data.forEach(dep => {
@@ -122,7 +124,7 @@
                 $distrito.disabled = true;
 
                 const res = await fetch(
-                    `${API}/ubicacion/departamentos/${departamentoId}/provincias`
+                    `/ubicacion/departamentos/${departamentoId}/provincias`
                 );
                 const provincias = await res.json();
 
@@ -143,7 +145,7 @@
                 $distrito.disabled = true;
 
                 const res = await fetch(
-                    `${API}/ubicacion/provincias/${provinciaID}/distritos`
+                    `/ubicacion/provincias/${provinciaID}/distritos`
                 );
                 const distritos = await res.json();
 
@@ -172,7 +174,7 @@
                 };
 
                 try {
-                    const res = await fetch(`${API}/tienda`, {
+                    const res = await fetch(`/tienda`, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(data)
@@ -188,7 +190,7 @@
             });
             loadDepartamentos()
         });
-    </script>
+    </script> -->
 </body>
 
 </html>

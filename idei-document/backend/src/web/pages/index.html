@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index Principal - IDEI PERU S.A.C.</title>
+    <link rel="stylesheet" href="../css/global.css">
+</head>
+<body>
+    <div class="grid-page">
+        <header class="header">
+            <div class="logo">
+                <span class="icon">📊</span>
+                <h1>Dashboard</h1>
+            </div>
+            <div class="user-profile">
+                <div class="avatar"></div>
+            </div>
+        </header>
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="/pages/Dashboard/dashboard.html" target="outlet" class="active">🏠 <span>Home</span></a></li>
+                    <li><a href="/pages/Generador/generador.html" target="outlet">🏪 <span>Tiendas</span></a></li>
+                    <li><a href="/pages/certificados.html" target="outlet">📄 <span>Certificados</span></a></li>
+                    <li class="separator"></li>
+                    <li><a href="/pages/config.html" target="outlet">⚙️ <span>Configuración</span></a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="main">
+            <div class="iframe-container">
+                <iframe name="outlet" src="/pages/Dashboard/dashboard.html" title="page-frame"></iframe>
+            </div>
+        </main>
+        <footer class="footer">
+            <p>&copy; 2026 Dashboard IDEI PERU S.A.C.<span id="current-date"></span></p>
+        </footer>
+    </div>
+</body>
+</html>

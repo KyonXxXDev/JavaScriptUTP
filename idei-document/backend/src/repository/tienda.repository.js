@@ -1,7 +1,8 @@
 import fs from 'node:fs/promises';
-import { TemplateHandler } from 'easy-template-x';
 import crypto from "node:crypto";
 import { Tienda } from "../schema/tienda.schema.js";
+import { htmlToPDF, renderTemplate } from '../utils/converterToPDF.js';
+import { imageToBase64 } from '../utils/imageToBase64.js';
 
 const DB_PATH = "./src/mocks/tiendas.json";
 
@@ -30,14 +31,17 @@ export class TiendaRepository {
 
         const tienda = new Tienda({ data });
         tienda.id = crypto.randomUUID();
-        
-        const template = await fs.readFile('./src/document.docx');
-        const handler = new TemplateHandler();
 
-        const doc = await handler.process(template, data);
+        tienda.logo = await imageToBase64("src/assets/Logo-idei.jpg");
+        tienda.firmaGerente = await imageToBase64("src/assets/Firma-gerente.png");
+        tienda.firmaIng = await imageToBase64("src/assets/Firma-ing.jpg");
 
-        const fileName = `${data.nombre} - CERTIFICADO DE OPERATIVIDAD LUCES DE EMERGENCIA (MES-AÑO)-CERTIFICADO.docx`;
-        await fs.writeFile(`./src/output/${fileName}`, doc);
+        const html = await renderTemplate(
+            './src/template/Template.html',
+            tienda
+        );
+        const pdfPath = `./src/output/${tienda.nombre}.pdf`;
+        await htmlToPDF(html, pdfPath);
 
         tiendas.push(tienda);
         await this.#write(tiendas);
