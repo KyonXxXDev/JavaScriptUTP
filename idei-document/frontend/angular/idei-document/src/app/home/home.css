@@ -1,0 +1,143 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+.home-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Header */
+.welcome-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 1.5rem;
+}
+
+.welcome-text h1 {
+  font-size: 2.2rem;
+  color: #0f172a; /* Slate 900 */
+  margin: 0;
+  font-weight: 800;
+}
+
+.text-accent {
+  color: #C9A227; /* El Dorado */
+}
+
+.current-date {
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+/* Cards de Accesos Rápidos */
+.quick-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.action-card {
+  background: white;
+  border: 2px solid #0f172a;
+  padding: 1.5rem;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 6px 6px 0 0 #0f172a;
+}
+
+.action-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 10px 10px 0 0 #C9A227;
+}
+
+.action-card:active {
+  transform: translate(4px, 4px);
+  box-shadow: 2px 2px 0 0 #0f172a;
+}
+
+.card-icon {
+  font-size: 2.5rem;
+}
+
+.card-info h3 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 1.2rem;
+}
+
+.card-info p {
+  margin: 4px 0 0;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.arrow-icon {
+  margin-left: auto;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #C9A227;
+}
+
+/* Banner de Estado */
+.status-banner {
+  margin-top: auto;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 1.5rem;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.status-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.status-indicator {
+  width: 12px;
+  height: 12px;
+  background: #22c55e;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(34, 197, 94, 0.4);
+}
+
+/* Botón con el estilo que pediste */
+.cta-button--primary {
+  background-color: #C9A227;
+  color: #0f172a;
+  border: 2px solid #0f172a;
+  padding: 10px 20px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.1s ease;
+  box-shadow: 4px 4px 0 0 #0f172a;
+}
+
+.cta-button--primary:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 0 #0f172a;
+}
+
+.cta-button--primary:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0 0 #0f172a;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

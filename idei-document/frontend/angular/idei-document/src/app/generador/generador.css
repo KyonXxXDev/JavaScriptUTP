@@ -8,6 +8,7 @@
 .container {
   max-width: 900px;
   margin: 0 auto;
+  animation: fadeIn 0.5s ease-out;
 }
 
 .subtitle {
@@ -113,4 +114,9 @@ select:disabled {
   opacity: 0.5;
   cursor: not-allowed;
   background-color: #f1f5f9;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(100px); }
+  to { opacity: 1; transform: translateY(0); }
 }

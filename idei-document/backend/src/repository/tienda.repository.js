@@ -4,7 +4,7 @@ import { Tienda } from "../schema/tienda.schema.js";
 import { htmlToPDF, renderTemplate } from '../utils/converterToPDF.js';
 import { imageToBase64 } from '../utils/imageToBase64.js';
 
-const DB_PATH = "./src/mocks/tiendas.json";
+const DB_PATH = "./src/mocks/tienda.json";
 
 export class TiendaRepository {
 

@@ -1,0 +1,16 @@
+[
+    {
+        "id": "d1",
+        "tipo": "LE",
+        "codigo": "LE-001",
+        "tiendaId": "t1",
+        "estado": "OPERATIVO"
+    },
+    {
+        "id": "d2",
+        "tipo": "DH",
+        "codigo": "DH-009",
+        "tiendaId": "t1",
+        "estado": "OPERATIVO"
+    }
+]
