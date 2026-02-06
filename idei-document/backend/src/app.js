@@ -5,6 +5,9 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import TiendasRoutes from './routes/tiendas.route.js';
 import UbicacionesRoutes from './routes/ubicaciones.route.js';
+import CertificadoRoutes from './routes/certificado.route.js';
+import AsociacionRoutes from './routes/asociacion.route.js';
+import DispositivoRoutes from './routes/dispositivo.route.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -42,6 +45,9 @@ app.get("/", (request, response) => {
 
 // });
 app.use("/tienda", TiendasRoutes)
+app.use("/certificado", CertificadoRoutes)
+app.use("/asociacion", AsociacionRoutes)
+app.use("/dispositivo", DispositivoRoutes)
 app.use("/ubicacion", UbicacionesRoutes)
 
 app.listen(process.env.PORT, () => {

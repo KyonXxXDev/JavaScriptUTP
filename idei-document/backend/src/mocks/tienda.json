@@ -1,0 +1,26 @@
+[
+  {
+    "id": "11d46e85-546c-4055-9b4f-b3c40eb2be6f",
+    "nombre": "Plaza Vea Higuereta",
+    "direccion": "Av. Siempre Viva 123",
+    "distrito": "Miraflores",
+    "provincia": "Lima",
+    "departamento": "Lima",
+    "asociacionId": "9b2b41aa-e725-44ec-a410-3d53ecaea011",
+    "estado": true,
+    "createdAt": "2026-02-05T04:41:27.488Z",
+    "updatedAt": null
+  },
+  {
+    "id": "23351b5f-536e-4837-9b5d-62f33667c2d4",
+    "nombre": "Alamos 1 Ves",
+    "direccion": "Av. Siempre Viva 123",
+    "distrito": "Miraflores",
+    "provincia": "Lima",
+    "departamento": "Lima",
+    "asociacionId": "0e8d0d51-bec9-4814-a7fa-ff0508f606b1",
+    "estado": true,
+    "createdAt": "2026-02-05T04:57:22.984Z",
+    "updatedAt": null
+  }
+]

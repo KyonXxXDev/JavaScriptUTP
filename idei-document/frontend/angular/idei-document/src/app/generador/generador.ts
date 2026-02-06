@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { GeneradorService } from './generador.service';
 import { Data } from './models/certificado-data';
@@ -10,7 +10,7 @@ import { Data } from './models/certificado-data';
   templateUrl: './generador.html',
   styleUrl: './generador.css',
 })
-export class Generador {
+export class Generador implements OnInit {
   private readonly generadorService = inject(GeneradorService);
   visible = false;
   departamentos: any[] = [];

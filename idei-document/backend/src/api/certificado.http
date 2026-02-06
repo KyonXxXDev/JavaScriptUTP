@@ -1,0 +1,27 @@
+### GET CERTIFICADOS BY TIENDA
+GET http://localhost:9000/certificado/tienda/31ae7fcf-d405-4ef6-b490-ac3d4b7a0609
+
+### GENERAR CERTIFICADO LE
+POST http://localhost:9000/certificado/generar
+Content-Type: application/json
+
+{
+  "tiendaId": "11d46e85-546c-4055-9b4f-b3c40eb2be6f",
+  "cantidad": 31,
+  "fechaEmision": "04-02-2026",
+  "tipo": "LE"
+}
+
+### GENERAR CERTIFICADO DH
+POST http://localhost:9000/certificado/generar
+Content-Type: application/json
+
+{
+  "tiendaId": "23351b5f-536e-4837-9b5d-62f33667c2d4",
+  "cantidad": 11,
+  "fechaEmision": "04-02-2026",
+  "tipo": "DH"
+}
+
+### DELETE CERTIFICADO
+DELETE http://localhost:9000/certificado/cc11dd22-ee33-ff44-gg55-hh6677889900

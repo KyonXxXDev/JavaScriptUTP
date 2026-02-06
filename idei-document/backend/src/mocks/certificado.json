@@ -1,0 +1,35 @@
+[
+  {
+    "id": "2d237d88-c1cf-4587-b6d4-00514ebb58f8",
+    "tipo": "LE",
+    "cantidad": 31,
+    "tiendaId": "11d46e85-546c-4055-9b4f-b3c40eb2be6f",
+    "template": "./src/template/certificado-le.html",
+    "fechaEmision": "4 de marzo de 2026",
+    "estado": true,
+    "createdAt": "2026-02-05T04:49:24.686Z",
+    "updatedAt": null
+  },
+  {
+    "id": "ac2f2f3b-8fe5-47a9-9bff-7cd04ef9af7e",
+    "tipo": "DH",
+    "cantidad": 11,
+    "tiendaId": "23351b5f-536e-4837-9b5d-62f33667c2d4",
+    "template": "./src/template/certificado-dh.html",
+    "fechaEmision": "4 de marzo de 2026",
+    "estado": true,
+    "createdAt": "2026-02-05T04:58:52.427Z",
+    "updatedAt": null
+  },
+  {
+    "id": "32b8bef9-3add-42cb-9d50-4d0f0135f9f4",
+    "tipo": "LE",
+    "cantidad": 31,
+    "tiendaId": "11d46e85-546c-4055-9b4f-b3c40eb2be6f",
+    "template": "./src/template/certificado-le.html",
+    "fechaEmision": "4 de marzo de 2026",
+    "estado": true,
+    "createdAt": "2026-02-05T04:58:59.118Z",
+    "updatedAt": null
+  }
+]

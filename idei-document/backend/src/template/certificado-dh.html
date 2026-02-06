@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>certificado DH</title>
+</head>
+<style>
+    @page {
+        size: A4;
+        margin: 0;
+    }
+
+    @font-face {
+        font-family: 'Broadway';
+        src: url('./BROADW.TTF') format('truetype');
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    body {
+        background-color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    img {
+        height: 3.78cm;
+        width: 5.37 cm;
+    }
+
+    .certificate {
+        width: 210mm;
+        min-height: 297mm;
+        padding: 15mm;
+        font-family: 'Times New Roman', serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 50px;
+        border: 1px solid #000000;
+    }
+
+    .certificate__header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .certificate__logo-box .certificate__logo {
+        height: 3.28cm;
+        width: 8.49cm;
+    }
+
+    .certificate__company {
+        font-size: 22px;
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+    }
+
+    .certificate__company-line {
+        font-family: 'Broadway', serif;
+    }
+
+    .certificate__body {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .certificate__body .certificate__title {
+        text-align: center;
+        font-size: 25px;
+        text-decoration: underline double;
+    }
+
+    .certificate__section {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+    }
+
+    .certificate__section .certificate__text {
+        font-size: 16px;
+        text-align: justify;
+    }
+
+    .certificate__body .certificate__section:nth-child(4) {
+        display: flex;
+        gap: 10px;
+    }
+
+    .certificate__signatures {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .certificate__signature-image-1 {
+        background-image: url("Firma-gerente.png");
+    }
+
+    .certificate__footer {
+        border-top: 1px solid #000000;
+        font-size: 14px;
+    }
+
+    .certificate__footer-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .certificate__footer-text {
+        font-weight: bold;
+    }
+</style>
+
+<body>
+    <div class="certificate">
+
+        <header class="certificate__header">
+            <section class="certificate__header-content">
+                <div class="certificate__logo-box">
+                    <img class="certificate__logo" src="{{logo}}" alt="logo-idei">
+                </div>
+                <div class="certificate__company">
+                    <p class="certificate__company-line">ILUMINACIÓN Y DISEÑO</p>
+                    <p class="certificate__company-line">ELECTRÓNICO INDUSTRIAL</p>
+                    <p class="certificate__company-line">PERÚ S.A.C.</p>
+                </div>
+            </section>
+        </header>
+
+        <main class="certificate__body">
+            <h1 class="certificate__title">CERTIFICADO DE OPERATIVIDAD</h1>
+
+            <section class="certificate__section">
+                <p class="certificate__text">Mediante la presente, la empresa ILUMINACIÓN Y DISEÑO ELECTRÓNICO
+                    INDUSTRIAL PERÚ S.A.C. (IDEI PERU) con R.U.C. 20553407657 representada por el Ing.
+                    Miguel Eduardo Llaguno Rubio con D.N.I 46332333; y con la revisión y aprobación del Ing.
+                    Julio Celso Espinoza Torres, con Registro del Colegio de Ingenieros del Perú N° 19828, con
+                    registro de habilidad vigente y habilitado para ejercer la profesión, luego de realizar la
+                    verificación de los equipos, de efectuar las pruebas y ensayos respectivos, certifica que las
+                    ({{cantidad}}) Detectores de Humo que posee la empresa <b>{{razon}}</b> con R.U.C.
+                    {{ruc}} en su tienda <b>{{nombre}}</b> de <b>{{direccion}}</b>, en el distrito de
+                    {{distrito}}, provincia de {{provincia}} y departamento de {{departamento}}, se
+                    encontraron <b>100% operativas.</b> A continuación, se muestran las características técnicas de los
+                    dispositivos en mención:</p>
+            </section>
+
+            <section class="certificate__section certificate__section--technical">
+                <p class="certificate__text">Marca: IDEI PERU</p>
+                <p class="certificate__text">Modelo: IPST84</p>
+                <p class="certificate__text">Tipo: Fotoeléctrico </p>
+                <p class="certificate__text">Frecuencia: 50/60 Hz</p>
+                <p class="certificate__text">Conexión: Inalámbrico a batería </p>
+                <p class="certificate__text">Batería: Batería sellada y libre de mantenimiento de 9V</p>
+                <p class="certificate__text">Alarma sonora: >85 dB (3m)</p>
+                <p class="certificate__text">Distancia de transmisión/recepción: 40m</p>
+            </section>
+
+            <section class="certificate__section">
+                <p class="certificate__text">
+                    La presente Certificación se mantiene vigente durante 12 meses mientras no se realicen cambios y/o
+                    reparaciones a los equipos.
+                </p>
+                <p class="certificate__text">Lima, {{fecha}}.</p>
+            </section>
+
+            <section class="certificate__signatures">
+                <div class="certificate__signature">
+                    <img class="certificate__signature-image-1" id="img-1" src="{{firmaGerente}}" alt="firma-gerente">
+                </div>
+                <div class="certificate__signature">
+                    <img class="certificate__signature-image-2" id="img-2" src="{{firmaIng}}" alt="firma-ingeniero">
+                </div>
+            </section>
+        </main>
+
+        <footer class="certificate__footer">
+            <section class="certificate__footer-content">
+                <p class="certificate__footer-text">Página Web: <a href="www.ideiperu.com">www.ideiperu.com</a></p>
+                <p class="certificate__footer-text">E-mail: <a href="/">ventas@ideiperu.com</a>, <a
+                        href="/">info@ideiperu.com</a></p>
+                <p class="certificate__footer-text">Tel: <span style="font-weight: 200;">697-3160</span> | Móvil: <span
+                        style="font-weight: 200;">980302897</span> | <span style="font-weight: 200;">997755769</span> |
+                    <span style="font-weight: 200;">958452782</span></p>
+                <p class="certificate__footer-text">
+                    <span style="font-weight: 200;">Dirección: Jr. Von Leonard Philipp 314 Urb. Corpac, San Borja,
+                        Lima-Perú</span>
+                </p>
+            </section>
+        </footer>
+    </div>
+</body>
+</html>

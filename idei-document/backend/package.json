@@ -15,7 +15,6 @@
     "convertapi-js": "~1.1",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
-    "easy-template-x": "7.0.3",
     "express": "^5.2.1",
     "puppeteer": "24.36.0"
   }

@@ -1,0 +1,22 @@
+### GET ALL DISPOSITIVOS
+GET http://localhost:9000/dispositivo
+
+### GET DISPOSITIVOS BY TIENDA
+GET http://localhost:9000/dispositivo/tienda/31ae7fcf-d405-4ef6-b490-ac3d4b7a0609
+
+### GET DISPOSITIVOS BY TIENDA Y TIPO
+GET http://localhost:9000/dispositivo/tienda/31ae7fcf-d405-4ef6-b490-ac3d4b7a0609?tipo=LE
+
+
+### CREATE DISPOSITIVO
+POST http://localhost:9000/dispositivo
+Content-Type: application/json
+
+{
+  "tipo": "LE",
+  "codigo": "LE-001",
+  "tiendaId": "990d55ce-25ec-42c3-9449-92711f4c1919"
+}
+
+### DELETE DISPOSITIVO
+DELETE http://localhost:9000/dispositivo/abcd1234-5678-90ef-ghij-klmnopqrstuv
