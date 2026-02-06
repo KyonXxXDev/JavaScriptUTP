@@ -1,3 +1,20 @@
 [
-    
+  {
+    "id": "9b2b41aa-e725-44ec-a410-3d53ecaea011",
+    "tipoDocumentoIdentidad": "RUC",
+    "nDocumento": "20608300393",
+    "nombre": "COMPAÑÍA FOOD RETAIL S.A.C.",
+    "estado": true,
+    "createdAt": "2026-02-05T03:53:58.520Z",
+    "updatedAt": null
+  },
+  {
+    "id": "0e8d0d51-bec9-4814-a7fa-ff0508f606b1",
+    "tipoDocumentoIdentidad": "RUC",
+    "nDocumento": "20608280333",
+    "nombre": "COMPAÑÍA HARD DISCOUNT S.A.C.",
+    "estado": true,
+    "createdAt": "2026-02-05T04:55:39.098Z",
+    "updatedAt": null
+  }
 ]

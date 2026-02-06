@@ -1,0 +1,26 @@
+### GET ALL ASOCIACIONES
+GET http://localhost:9000/asociacion
+
+### GET ASOCIACION BY ID
+GET http://localhost:9000/asociacion/aa11bb22-cc33-dd44-ee55-ff6677889900
+
+### CREATE ASOCIACION
+POST http://localhost:9000/asociacion
+Content-Type: application/json
+
+{
+  "tipoDocumentoIdentidad": "RUC",
+  "nDocumento": "20608280333",
+  "nombre": "COMPAÑÍA HARD DISCOUNT S.A.C."
+}
+
+### UPDATE ASOCIACION
+PUT http://localhost:9000/asociacion/aa11bb22-cc33-dd44-ee55-ff6677889900
+Content-Type: application/json
+
+{
+  "nombre": "Asociación Comercial Lima Norte"
+}
+
+### DELETE ASOCIACION
+DELETE http://localhost:9000/asociacion/aa11bb22-cc33-dd44-ee55-ff6677889900

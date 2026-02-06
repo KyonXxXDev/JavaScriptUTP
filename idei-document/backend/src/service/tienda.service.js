@@ -1,8 +1,10 @@
+import { AsociacionRepository } from "../repository/asociacion.repository.js";
 import { TiendaRepository } from "../repository/tienda.repository.js";
 
 export class TiendaService {
   constructor() {
     this.repo = new TiendaRepository();
+    this.asociacionRepo = new AsociacionRepository();
   }
 
   getAll() {
@@ -10,13 +12,28 @@ export class TiendaService {
   }
 
   getById({ id }) {
-    return this.repo.findById({id});
+    return this.repo.findById({ id });
   }
 
-  create({ data }) {
-    if (!data.nombre || !data.cantidad) {
-      throw new Error("Nombre y cantidad son obligatorios");
+  async create({ data }) {
+    const {
+      nombre,
+      direccion,
+      distrito,
+      provincia,
+      departamento,
+      asociacionId
+    } = data;
+
+    if (!nombre || !direccion || !asociacionId || !distrito || !provincia || !departamento ) {
+      throw new Error("Nombre, dirección y asociación son obligatorios");
     }
+
+    const asociacion = await this.asociacionRepo.findById({ id: asociacionId });
+    if (!asociacion) {
+      throw new Error("La asociación no existe o está inactiva");
+    }
+
     return this.repo.create({ data });
   }
 

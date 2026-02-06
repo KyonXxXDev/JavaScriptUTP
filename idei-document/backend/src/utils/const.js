@@ -1,6 +1,6 @@
-import rawDepartamentos from '../mocks/departamentos.json' with {type: 'json'};
-import rawProvincias from '../mocks/provincias.json' with {type: 'json'};
-import rawDistritos from '../mocks/distritos.json' with {type: 'json'};
+import rawDepartamentos from '../mocks/departamento.json' with {type: 'json'};
+import rawProvincias from '../mocks/provincia.json' with {type: 'json'};
+import rawDistritos from '../mocks/distrito.json' with {type: 'json'};
 
 export const UBICACIONES = {
     "departamentos": rawDepartamentos,
