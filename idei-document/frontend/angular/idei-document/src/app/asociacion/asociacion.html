@@ -1,0 +1,60 @@
+<div class="content-wrapper">
+    <header class="section-header">
+        <div class="header-info">
+            <h2 class="title">{{ title }}</h2>
+            <p class="subtitle">Gestiona las organizaciones y convenios activos</p>
+        </div>
+
+        <div class="search-box">
+            <mat-icon>search</mat-icon>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscar por nombre o documento" />
+        </div>
+    </header>
+
+    <div class="association-grid">
+        @for (asoc of asociacionesFiltradas; track asoc.id) {
+        <article class="assoc-card">
+            <div class="assoc-accent"></div>
+
+            <div class="assoc-content">
+                <div class="assoc-main">
+                    <div style="display: flex; gap: 10px;">
+                        <span class="assoc-type">
+                            {{ asoc.tipoDocumentoIdentidad }}
+                        </span>
+                        <span class="assoc-type">
+                            <mat-icon class="assoc-icon">history</mat-icon>
+                            Actualizado: {{ asoc.updatedAt | date:'HH:mm' }}
+                            <small>({{ asoc.updatedAt | date:'dd/MM' }})</small>
+                        </span>
+                    </div>
+
+
+                    <h3 class="assoc-name">
+                        {{ asoc.nombre }}
+                    </h3>
+
+                    <p class="assoc-doc">
+                        <mat-icon>fingerprint</mat-icon>
+                        {{ asoc.nDocumento }}
+                    </p>
+                </div>
+
+                <div class="assoc-actions">
+                    <button class="action-btn edit" (click)="editAsociacion(asoc)">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+
+                    <button class="action-btn delete" (click)="deleteAsociacion(asoc)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </article>
+        }
+    </div>
+
+    <button class="fab-button" (click)="createAsociacion()" title="Agregar Asociación">
+        <mat-icon>add</mat-icon>
+    </button>
+</div>
