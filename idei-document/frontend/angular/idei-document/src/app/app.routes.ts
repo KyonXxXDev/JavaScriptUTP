@@ -1,10 +1,9 @@
 import { Routes } from '@angular/router';
 import { Home } from './home/home';
 import { Dashboard } from './dashboard/dashboard';
-import { Generador } from './generador/generador';
 import { Tienda } from './tienda/tienda';
-import { Certificado } from './certificado/certificado';
 import { Asociacion } from './asociacion/asociacion';
+import { Certificado } from './certificado/certificado';
 
 export const routes: Routes = [
     {
@@ -16,11 +15,6 @@ export const routes: Routes = [
         path: 'dashboard',
         title: 'Dashboard Page',
         component: Dashboard
-    },
-    {
-        path: 'generator',
-        title: 'Generator Page',
-        component: Generador
     },
     {
         path: 'tienda',

@@ -1,16 +1,14 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AsociacionModel } from '../models/asociacion.model';
+import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AsociacionService {
+export class AsociacionService extends ApiService {
 
-  private readonly API_URL = 'http://localhost:9000/asociacion';
-
-  constructor(private readonly http: HttpClient) {}
+  private readonly API_URL = `${this.baseUrl}/asociacion`;
 
   getAll(): Observable<AsociacionModel[]> {
     return this.http.get<AsociacionModel[]>(`${this.API_URL}`);

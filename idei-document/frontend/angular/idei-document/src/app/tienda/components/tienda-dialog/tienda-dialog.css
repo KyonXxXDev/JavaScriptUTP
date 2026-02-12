@@ -1,0 +1,91 @@
+/* Título del Diálogo */
+h2[mat-dialog-title] {
+  margin: 0;
+  padding: 24px 24px 10px 24px;
+  color: var(--sidebar-bg); /* Slate 900 */
+  font-weight: 800;
+  font-size: 1.5rem;
+  letter-spacing: -0.5px;
+  border-bottom: 2px solid #f1f5f9;
+}
+
+/* Contenedor de Contenido */
+.dialog-content {
+  padding-top: 20px !important;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Campos de Formulario */
+.full-width {
+  width: 100%;
+}
+
+.row-two-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* Overrides de Angular Material para usar tus colores exactos */
+::ng-deep .mat-mdc-form-field.mat-focused .mat-mdc-select-arrow {
+  color: var(--accent) !important;
+}
+
+::ng-deep .mat-mdc-form-field.mat-focused .mat-mdc-floating-label {
+  color: var(--accent) !important;
+}
+
+::ng-deep .mat-mdc-form-field.mat-focused .mdc-notched-outline__leading,
+::ng-deep .mat-mdc-form-field.mat-focused .mdc-notched-outline__notch,
+::ng-deep .mat-mdc-form-field.mat-focused .mdc-notched-outline__trailing {
+  border-color: var(--accent) !important;
+  border-width: 2px !important;
+}
+
+/* Checkbox Personalizado */
+mat-checkbox {
+  margin: 8px 0;
+  color: var(--sidebar-bg);
+  font-weight: 500;
+}
+
+::ng-deep .mdc-checkbox .mdc-checkbox__native-control:enabled:checked ~ .mdc-checkbox__background {
+  background-color: var(--accent) !important;
+  border-color: var(--accent) !important;
+}
+
+/* Acciones/Botones */
+mat-dialog-actions {
+  padding: 20px 24px !important;
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+}
+
+.btn-cancel {
+  color: #64748b !important;
+  font-weight: 600;
+}
+
+.btn-save {
+  background-color: var(--sidebar-bg) !important; /* Fondo Oscuro */
+  color: var(--accent) !important; /* Texto Dorado */
+  font-weight: 700 !important;
+  padding: 0 24px !important;
+  height: 45px !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2) !important;
+  transition: all 0.3s ease !important;
+}
+
+.btn-save:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(201, 162, 39, 0.2) !important;
+  background-color: #1e293b !important;
+}
+
+.btn-save:disabled {
+  background-color: #e2e8f0 !important;
+  color: #94a3b8 !important;
+}

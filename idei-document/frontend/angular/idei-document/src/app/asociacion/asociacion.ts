@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
@@ -8,11 +8,11 @@ import { Router, RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { AsociacionService } from './services/asociacion.service';
-import { AsociacionModel } from './models/asociacion.model';
+import { AsociacionService } from '../services/asociacion.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AsociacionDialog } from './components/asociacion-dialog/asociacion-dialog';
 import { DatePipe } from '@angular/common';
+import { AsociacionModel } from '../models/asociacion.model';
 
 
 @Component({
@@ -30,15 +30,15 @@ import { DatePipe } from '@angular/common';
   styleUrl: './asociacion.css',
 })
 export class Asociacion implements OnInit {
-  private readonly asociacionService = inject(AsociacionService);
-
   title = "Asociaciones";
+  private readonly asociacionService = inject(AsociacionService);
   asociaciones: AsociacionModel[] = [];
   asociacionesFiltradas: AsociacionModel[] = [];
   isLoadingResults = false;
   totalItems = 0;
 
   constructor(
+    private readonly cdr: ChangeDetectorRef,
     private readonly router: Router,
     private readonly dialog: MatDialog
   ) { }
@@ -49,6 +49,8 @@ export class Asociacion implements OnInit {
 
   loadData() {
     this.isLoadingResults = true;
+    this.isLoadingResults = true;
+    this.cdr.markForCheck();  // Marca para check inicial (loading cambia)
 
     this.asociacionService.getAll().subscribe({
       next: (data) => {
@@ -56,9 +58,12 @@ export class Asociacion implements OnInit {
         this.asociacionesFiltradas = data;
         this.totalItems = data.length;
         this.isLoadingResults = false;
+        this.cdr.markForCheck();  // Marca para verificación después del async (evita el error)
       },
-      error: () => {
+      error: (err) => {
+        console.error('Error loading tiendas:', err);  // Log para debug
         this.isLoadingResults = false;
+        this.cdr.markForCheck();
       }
     });
   }
@@ -89,9 +94,17 @@ export class Asociacion implements OnInit {
   }
 
   deleteAsociacion(row: AsociacionModel) {
-    this.asociacionService.delete(row.id).subscribe(() => {
-      this.loadData();
-    });
+    if (confirm(`¿Eliminar Asociación ${row.nombre}?`)) {
+      this.asociacionService.delete(row.id).subscribe({
+        next: () => {
+          this.loadData();
+          this.cdr.markForCheck();
+        },
+        error: (err) => {
+          console.error('Error deleting Asociación:', err);
+        }
+      });
+    }
   }
 
   applyFilter(value: string) {

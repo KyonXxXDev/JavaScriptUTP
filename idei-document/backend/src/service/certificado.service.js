@@ -1,6 +1,7 @@
 import { AsociacionRepository } from "../repository/asociacion.repository.js";
 import { CertificadoRepository } from "../repository/certificado.repository.js";
 import { TiendaRepository } from "../repository/tienda.repository.js";
+import { UbicacionRepository } from "../repository/ubicacion.repository.js";
 import { htmlToPDF, renderTemplate } from "../utils/converterToPDF.js";
 import { imageToBase64 } from "../utils/imageToBase64.js";
 import { DateUtils } from "../web/js/global.js";
@@ -10,6 +11,11 @@ export class CertificadoService {
         this.repo = new CertificadoRepository();
         this.tiendaRepo = new TiendaRepository();
         this.asociacionRep = new AsociacionRepository();
+        this.ubicacionRepo = new UbicacionRepository();
+    }
+    
+    getAll() {
+        return this.repo.findAll();
     }
 
     async generar({ tiendaId, tipo, cantidad, fechaEmision }) {
@@ -22,10 +28,14 @@ export class CertificadoService {
         }
 
         const tienda = await this.tiendaRepo.findById({ id: tiendaId });
+        tienda.departamentoName = await this.ubicacionRepo.getDepartamentoById({id: tienda.departamento});
+        tienda.provinciaName = await this.ubicacionRepo.getProvinciaById({id: tienda.provincia});
+        tienda.distritoName = await this.ubicacionRepo.getDistritoById({id: tienda.distrito});
+
         if (!tienda) {
             throw new Error("La tienda no existe o está inactiva");
         }
-        const asociacion = await this.asociacionRep.findById({id: tienda.asociacionId})
+        const asociacion = await this.asociacionRep.findById({ id: tienda.asociacionId })
 
         // const cantidad = await this.dispositivoRepo.countByTiendaAndTipo({
         //     tiendaId,
@@ -50,7 +60,10 @@ export class CertificadoService {
             firmaIng: await imageToBase64("src/assets/Firma-ing.jpg"),
             fecha: DateUtils.formatDate({ fecha: fechaEmision }),
             razon: asociacion.nombre,
-            ruc: asociacion.nDocumento
+            ruc: asociacion.nDocumento,
+            departamento: tienda.departamentoName.name,
+            provincia: tienda.provinciaName.name,
+            distrito: tienda.distritoName.name
         };
 
         const html = await renderTemplate(template, payload);

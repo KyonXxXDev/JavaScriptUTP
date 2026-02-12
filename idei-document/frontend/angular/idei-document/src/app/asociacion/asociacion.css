@@ -57,7 +57,7 @@
 .association-grid {
   display: grid;
   /* Crea columnas automáticas de mínimo 300px */
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
   gap: 20px;
 }
 
@@ -149,6 +149,7 @@
 .edit:hover { background: #dcfce7; color: #16a34a; }
 .delete:hover { background: #fee2e2; color: #dc2626; }
 
+/* Botón Flotante Personalizado */
 /* Botón Flotante Personalizado */
 .fab-button {
   position: fixed;

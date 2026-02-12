@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Certificado } from './certificado';
+import { CertificadoDialog } from './certificado-dialog';
 
-describe('Certificado', () => {
-  let component: Certificado;
-  let fixture: ComponentFixture<Certificado>;
+describe('CertificadoDialog', () => {
+  let component: CertificadoDialog;
+  let fixture: ComponentFixture<CertificadoDialog>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Certificado]
+      imports: [CertificadoDialog]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Certificado);
+    fixture = TestBed.createComponent(CertificadoDialog);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

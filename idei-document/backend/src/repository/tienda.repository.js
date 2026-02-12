@@ -1,11 +1,17 @@
 import fs from 'node:fs/promises';
 import crypto from "node:crypto";
 import { Tienda } from "../schema/tienda.schema.js";
+import { AsociacionService } from '../service/asociacion.service.js';
+import { UbicacionRepository } from './ubicacion.repository.js';
 
 const DB_PATH = "./src/mocks/tienda.json";
 
 export class TiendaRepository {
+    constructor() {
+        this.asociacionService = new AsociacionService();
+        this.ubicacionRepository = new UbicacionRepository();
 
+    }
     async #read() {
         const data = await fs.readFile(DB_PATH, "utf-8");
         return JSON.parse(data);
@@ -17,7 +23,21 @@ export class TiendaRepository {
 
     async findAll({ onlyActive = true } = {}) {
         const tiendas = await this.#read();
-        return onlyActive ? tiendas.filter(t => t.estado) : tiendas;
+        const filtered = onlyActive ? tiendas.filter(t => t.estado) : tiendas;
+
+        return Promise.all(filtered.map(async (t) => {
+
+            const departamento = await this.ubicacionRepository.getDepartamentoById({ id: t.departamento });
+            const provincia = await this.ubicacionRepository.getProvinciaById({ id: t.provincia });
+            const distrito = await this.ubicacionRepository.getDistritoById({ id: t.distrito });
+
+            return {
+                ...t,
+                departamentoNombre: departamento?.name,
+                provinciaNombre: provincia?.name,
+                distritoNombre: distrito?.name
+            };
+        }));
     }
 
     async findById({ id }) {

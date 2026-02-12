@@ -1,0 +1,57 @@
+<form [formGroup]="form" (ngSubmit)="save()">
+  <h2 mat-dialog-title>
+    <mat-icon class="title-icon">verified_user</mat-icon>
+    {{ isEditMode ? 'Editar Certificado' : 'Nuevo Certificado' }}
+  </h2>
+
+  <mat-dialog-content class="dialog-content">
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Tienda Destino</mat-label>
+      <mat-icon matPrefix>storefront</mat-icon>
+      <mat-select formControlName="tiendaId" [disabled]="loadingTiendas">
+        <mat-option *ngFor="let tienda of tiendas" [value]="tienda.id">
+          {{ tienda.nombre }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('tiendaId')?.hasError('required')">Selecciona una tienda</mat-error>
+    </mat-form-field>
+
+    <div class="row-two-fields">
+      <mat-form-field appearance="outline">
+        <mat-label>Tipo de Luz</mat-label>
+        <mat-icon matPrefix>lightbulb</mat-icon>
+        <mat-select formControlName="tipo">
+          <mat-option value="LE">LE (Luces Estándar)</mat-option>
+          <mat-option value="DH">DH (Luces Decorativas)</mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('tipo')?.hasError('required')">Requerido</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Cantidad</mat-label>
+        <mat-icon matPrefix>numbers</mat-icon>
+        <input matInput type="number" formControlName="cantidad" min="1" placeholder="Ej: 50">
+        <mat-error *ngIf="form.get('cantidad')?.hasError('required')">Ingresa cantidad</mat-error>
+      </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Fecha de Emisión</mat-label>
+      <mat-icon matPrefix>calendar_today</mat-icon>
+      <input matInput [matDatepicker]="picker" formControlName="fechaEmision">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="form.get('fechaEmision')?.hasError('required')">Selecciona una fecha</mat-error>
+    </mat-form-field>
+
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button class="btn-cancel" (click)="onCancel()">Cancelar</button>
+    <button mat-raised-button class="btn-save" type="submit" [disabled]="form.invalid">
+      <mat-icon>{{ isEditMode ? 'refresh' : 'auto_awesome' }}</mat-icon>
+      {{ isEditMode ? 'Actualizar' : 'Generar Certificado' }}
+    </button>
+  </mat-dialog-actions>
+</form>

@@ -14,10 +14,15 @@ const __dirname = dirname(__filename);
 
 dotenv.config();
 const app = express();
-
+app.use(cors({
+    origin: 'http://localhost:4200',
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
+    optionsSuccessStatus: 204
+}));
 app.disable('x-powered-by');
 app.use(express.json());
-app.use(cors());
 app.use(express.static(join(__dirname, 'web')));
 
 app.get("/", (request, response) => {

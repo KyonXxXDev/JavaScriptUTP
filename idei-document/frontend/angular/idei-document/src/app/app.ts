@@ -2,7 +2,7 @@ import { Component, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet, Router } from '@angular/router';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
-import { Menu } from './model/Menu';
+import { Menu } from './models/Menu';
 import {MatIconModule} from '@angular/material/icon';
 
 @Component({
@@ -24,8 +24,7 @@ export class App {
       new Menu('Dashboard', '/dashboard', 'dashboard'),
       new Menu('Tiendas', '/tienda', 'store'),
       new Menu('Certificados', '/certificado', 'chrome_reader_mode'),
-      new Menu('Asociaciones', '/asociacion', 'group_work'),
-      new Menu('Generador de Certificados', 'generator', 'chrome_reader_mode'),
+      new Menu('Asociaciones', '/asociacion', 'group_work')
     ];
     return menu;
   }

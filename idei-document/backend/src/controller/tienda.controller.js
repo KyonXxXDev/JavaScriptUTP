@@ -19,7 +19,9 @@ export class TiendaController {
   create = async (req, res) => {
     try {
       const data = req.body
+      console.log(data)
       const tienda = await this.service.create({data});
+      console.log(tienda)
       res.status(201).json(tienda);
     } catch (error) {
       res.status(400).json({ message: error.message });

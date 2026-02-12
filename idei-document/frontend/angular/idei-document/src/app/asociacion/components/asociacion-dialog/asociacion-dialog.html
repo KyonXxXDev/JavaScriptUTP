@@ -1,29 +1,45 @@
 <form [formGroup]="form" (ngSubmit)="save()">
+    <h2 mat-dialog-title>
+        <mat-icon class="title-icon">business</mat-icon>
+        {{ data ? 'Editar Asociación' : 'Nueva Asociación' }}
+    </h2>
+
     <mat-dialog-content class="dialog-content">
-        <h2 mat-dialog-title>
-            {{ data ? 'Editar Asociación' : 'Nueva Asociación' }}
-        </h2>
-        <mat-form-field appearance="outline">
-            <mat-label>Tipo de Documento</mat-label>
-            <input matInput formControlName="tipoDocumentoIdentidad">
-        </mat-form-field>
 
-        <mat-form-field appearance="outline">
-            <mat-label>N° Documento</mat-label>
-            <input matInput formControlName="nDocumento">
-        </mat-form-field>
+        <div class="row-two-fields">
+            <mat-form-field appearance="outline">
+                <mat-label>Tipo de Documento</mat-label>
+                <mat-icon matPrefix>description</mat-icon>
+                <mat-select formControlName="tipoDocumentoIdentidad" required>
+                    <mat-option value="RUC">RUC (Empresa/P. Jurídica)</mat-option>
+                    <mat-option value="CE">Carnet de Extranjería</mat-option>
+                    <mat-option value="PTP">P.T.P. (Permiso Temporal)</mat-option>
+                    <mat-option value="DNI">DNI (Representante)</mat-option>
+                    <mat-option value="PASAPORTE">Pasaporte</mat-option>
+                </mat-select>
+            </mat-form-field>
 
-        <mat-form-field appearance="outline">
-            <mat-label>Nombre</mat-label>
-            <input matInput formControlName="nombre">
+            <mat-form-field appearance="outline">
+                <mat-label>N° Documento</mat-label>
+                <input matInput formControlName="nDocumento" placeholder="00000000000">
+            </mat-form-field>
+        </div>
+
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Nombre de la Asociación</mat-label>
+            <mat-icon matPrefix>assignment</mat-icon>
+            <input matInput formControlName="nombre" placeholder="Ej: Asociación de Comerciantes IDEI">
         </mat-form-field>
 
     </mat-dialog-content>
 
-    <mat-dialog-actions>
-        <button mat-button mat-dialog-close>Cancelar</button>
-        <button mat-raised-button color="primary" [disabled]="form.invalid">
-            Guardar
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close class="btn-cancel">
+            Cancelar
+        </button>
+        <button mat-raised-button class="btn-save" type="submit" [disabled]="form.invalid">
+            <mat-icon>save</mat-icon>
+            {{ data ? 'Actualizar' : 'Registrar' }}
         </button>
     </mat-dialog-actions>
 </form>

@@ -3,72 +3,82 @@
         <div class="header-content">
             <h1>Registro de Certificados</h1>
             <section class="export-section">
-                <button id="export-btn" class="btn-export">Descargar en CSV</button>
-                <button id="refresh-btn" class="btn-refresh">Actualizar</button>
+                <button id="export-btn" class="btn-export" (click)="exportToCSV()">Descargar en CSV</button>
+                <button id="refresh-btn" class="btn-refresh" (click)="loadData()">Actualizar</button>
             </section>
         </div>
-
     </header>
 
     <main class="dashboard-main">
+        <!-- Estadísticas -->
         <section class="stats-section">
             <div class="stat-card">
                 <h3>Total de Registros</h3>
-                <p class="stat-number" id="total-records">{{ totalRecords }}</p>
+                <p class="stat-number">{{ totalRecords }}</p>
             </div>
             <div class="stat-card">
                 <h3>Luces Registradas</h3>
-                <p class="stat-number" id="total-lights">{{ totalLights | number }}</p>
+                <p class="stat-number">{{ totalLights | number:'1.0-0' }}</p>
+            </div>
+            <div class="stat-card">
+                <h3>Detectores Registrados</h3>
+                <p class="stat-number">{{ totalDh | number:'1.0-0' }}</p>
             </div>
             <div class="stat-card">
                 <h3>Últimos 24h</h3>
-                <p class="stat-number" id="records-24h">{{ last24h }}</p>
+                <p class="stat-number">{{ last24h }}</p>
             </div>
         </section>
 
+        <!-- Filtros -->
         <section class="filters-section">
-            <input type="text" id="search-input" class="search-box" placeholder="🔍 Buscar por nombre de tienda..."
-                [(ngModel)]="sortType" (change)="applySort()" />
-            <select id="sort-select" class="sort-select">
+            <input type="text" class="search-box" placeholder="🔍 Buscar por nombre de tienda o tipo..."
+                [(ngModel)]="search" (input)="onSearch(search)" />
+
+            <select class="sort-select" [(ngModel)]="sortType" (change)="applySort()">
                 <option value="newest">Más recientes primero</option>
                 <option value="oldest">Más antiguos primero</option>
-                <option value="name">Por nombre (A-Z)</option>
-                <option value="lights">Por cantidad de luces</option>
+                <option value="name">Por nombre de tienda (A-Z)</option>
+                <option value="lights">Por cantidad de luces (mayor a menor)</option>
             </select>
         </section>
 
+        <!-- Tabla -->
         <section class="table-section">
-            <div class="table-wrapper">
+            <div class="table-wrapper" *ngIf="filteredRecords.length > 0; else noRecords">
                 <table class="records-table">
                     <thead>
                         <tr>
-                            <th>Tienda/Empresa</th>
+                            <th>Tienda / Empresa</th>
+                            <th>Tipo</th>
                             <th>Cantidad de Luces</th>
-                            <th>Dirección</th>
-                            <th>Departamento</th>
-                            <th>Provincia</th>
-                            <th>Distrito</th>
-                            <th>Fecha</th>
-                            <th>Registrado</th>
+                            <th>Fecha Emisión</th>
+                            <th>Registrado el</th>
                         </tr>
                     </thead>
-                    <tbody id="records-body">
-                        <tr class="loading-row" *ngFor="let record of filteredRecords">
-                            <td><strong>{{ record.nombre }}</strong></td>
-                            <td><span class="badge">{{ record.cantidad }}</span></td>
-                            <td>{{ record.direccion || '-' }}</td>
-                            <td>{{ record.departamento }}</td>
-                            <td>{{ record.provincia }}</td>
-                            <td>{{ record.distrito }}</td>
-                            <td>{{ record.fecha || '-' }}</td>
+                    <tbody>
+                        <tr *ngFor="let record of filteredRecords">
+                            <td>
+                                <strong>{{ record.nombre || 'Tienda desconocida' }}</strong>
+                            </td>
+                            <td>
+                                <span class="badge">
+                                    {{ record.tipo }}
+                                </span>
+                            </td>
+                            <td class="text-center">{{ record.cantidad }}</td>
+                            <td>{{ record.fechaEmision }}</td>
                             <td>{{ record.createdAt | date:'dd MMM yyyy HH:mm' }}</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <div id="no-records" class="no-records" style="display: none;">
-                <p>No hay registros que mostrar</p>
-            </div>
+
+            <ng-template #noRecords>
+                <div class="no-records">
+                    <p>No hay certificados registrados aún</p>
+                </div>
+            </ng-template>
         </section>
     </main>
 </div>
