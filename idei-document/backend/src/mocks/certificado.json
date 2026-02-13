@@ -64,5 +64,16 @@
     "estado": false,
     "createdAt": "2026-02-12T04:35:58.233Z",
     "updatedAt": "2026-02-12T04:36:24.809Z"
+  },
+  {
+    "id": "06e07b4d-3566-4316-a516-804d9f93d659",
+    "tipo": "LE",
+    "cantidad": 6,
+    "tiendaId": "ca8001e6-ceb5-433b-91dd-9da4b850b999",
+    "template": "./src/template/certificado-le.html",
+    "fechaEmision": "12 de marzo de 2026",
+    "estado": true,
+    "createdAt": "2026-02-13T02:09:34.556Z",
+    "updatedAt": null
   }
 ]
