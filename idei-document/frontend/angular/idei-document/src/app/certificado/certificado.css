@@ -1,0 +1,272 @@
+/* Header y Buscador */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--sidebar-bg);
+}
+
+.subtitle {
+  margin: 4px 0 0 0;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 8px 16px;
+  width: 100%;
+  max-width: 400px;
+  transition: all 0.3s;
+}
+
+.search-box:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.1);
+}
+
+.search-box input {
+  border: none;
+  background: transparent;
+  outline: none;
+  padding: 8px;
+  width: 100%;
+  font-size: 0.95rem;
+}
+
+.header-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.filter {
+  width: 300px;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-column-id, .mat-column-tiendaId {
+  width: 120px;
+}
+
+.mat-column-cantidad {
+  width: 100px;
+  text-align: center;
+}
+
+.status-chip {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.active {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.inactive {
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+.loading-shade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0,0,0,0.15);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.no-data {
+  text-align: center;
+  padding: 40px;
+  color: #757575;
+}
+
+/* Layout Principal */
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.header-controls {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+/* Botón Primario Estilo IDEI */
+.btn-primary {
+  background-color: var(--sidebar-bg); /* Slate 900 */
+  color: var(--accent); /* Dorado */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  background-color: #1e293b;
+}
+
+/* Tabla Moderna */
+.table-container {
+  background: white;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+.custom-table {
+  width: 100%;
+  background: transparent;
+}
+
+.mat-header-cell {
+  background: #f8fafc;
+  color: #64748b;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  padding: 16px !important;
+  border-bottom: 2px solid #f1f5f9;
+}
+
+.mat-cell {
+  padding: 16px !important;
+  color: var(--sidebar-bg);
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.element-row:hover {
+  background-color: #f8fafc;
+}
+
+/* Estilos de Celda */
+.id-badge {
+  background: #f1f5f9;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 600;
+  color: #475569;
+}
+
+.text-bold { font-weight: 600; }
+
+.tienda-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.mini-icon {
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+  color: var(--accent);
+}
+
+.cantidad-text {
+  font-weight: 800;
+  color: var(--sidebar-bg);
+}
+
+/* Chips de Estado */
+.status-chip {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.status-chip.active {
+  background: rgba(201, 162, 39, 0.1);
+  color: var(--accent);
+}
+
+/* Acciones */
+.action-group {
+  display: flex;
+  gap: 8px;
+}
+
+.action-btn {
+  border: none;
+  background: #f1f5f9;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  color: #64748b;
+}
+
+.edit:hover { background: rgba(201, 162, 39, 0.1); color: var(--accent); }
+.delete:hover { background: #fee2e2; color: #dc2626; }
+
+/* Botón Flotante Personalizado */
+.fab-button {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 60px;
+  height: 60px;
+  border-radius: 20px;
+  background: var(--sidebar-bg);
+  color: var(--accent);
+  border: none;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  z-index: 1000;
+}
+
+.fab-button:hover {
+  transform: scale(1.1) rotate(90deg);
+  background: var(--accent);
+  color: var(--sidebar-bg);
+}

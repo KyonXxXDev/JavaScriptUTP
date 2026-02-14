@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Data } from './models/certificado-data';
 import { Observable } from 'rxjs';
+import { CertificadoModel } from '../models/certificado.model';
 
 @Injectable({
   providedIn: 'root',
@@ -23,8 +23,8 @@ export class GeneradorService {
   }
 
 
-  create(certificado: Data): Observable<Data> {
-    return this.http.post<Data>(this.apiUrl, certificado, this.httpOptions);
+  create(certificado: CertificadoModel): Observable<CertificadoModel> {
+    return this.http.post<CertificadoModel>(this.apiUrl, certificado, this.httpOptions);
   }
 
   /** GET departamentos */

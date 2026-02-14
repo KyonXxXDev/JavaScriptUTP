@@ -1,0 +1,63 @@
+<form [formGroup]="form" (ngSubmit)="save()">
+  <h2 mat-dialog-title>
+    {{ isEditMode ? 'Editar Tienda' : 'Nueva Tienda' }}
+  </h2>
+
+  <mat-dialog-content class="dialog-content">
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Nombre de la Tienda</mat-label>
+      <input matInput formControlName="nombre" placeholder="Ej: Tienda Central Lima Norte" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Dirección</mat-label>
+      <input matInput formControlName="direccion" placeholder="Ej: Av. Siempre Viva 123" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Departamento</mat-label>
+      <mat-select (selectionChange)="onDepartamentoChange($event.value)" formControlName="departamento">
+        <mat-option *ngFor="let dep of departamentos" [value]="dep.id">
+          {{ dep.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="row-two-fields">
+
+      <mat-form-field appearance="outline">
+        <mat-label>Provincia</mat-label>
+        <mat-select (selectionChange)="onProvinciaChange($event.value)" formControlName="provincia">
+          <mat-option *ngFor="let prov of provincias" [value]="prov.id">{{prov.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Distrito</mat-label>
+        <mat-select formControlName="distrito">
+          <mat-option *ngFor="let dist of distritos" [value]="dist.id">{{dist.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Asociación</mat-label>
+      <mat-select formControlName="asociacionId">
+        <mat-option *ngFor="let asoc of asociaciones" [value]="asoc.id">{{asoc.nombre}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- <mat-checkbox formControlName="estado">
+      Tienda activa
+    </mat-checkbox> -->
+
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button (click)="onCancel()">Cancelar</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+      {{ isEditMode ? 'Actualizar' : 'Crear' }}
+    </button>
+  </mat-dialog-actions>
+</form>

@@ -5,6 +5,10 @@ export class CertificadoController {
     this.service = new CertificadoService();
   }
 
+  getAll = async (req, res) => {
+    res.json(await this.service.getAll());
+  };
+  
   generar = async (req, res) => {
     const {tiendaId, tipo} = req.body;
     const { cantidad, fechaEmision } = req.body

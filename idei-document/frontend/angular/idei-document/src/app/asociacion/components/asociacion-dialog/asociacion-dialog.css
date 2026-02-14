@@ -1,0 +1,88 @@
+/* Título con Icono */
+h2[mat-dialog-title] {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--sidebar-bg); /* Slate 900 */
+  font-weight: 800;
+  padding: 24px 24px 15px;
+  border-bottom: 2px solid #f1f5f9;
+}
+
+.title-icon {
+  color: var(--accent); /* Dorado */
+}
+
+.dialog-content {
+  padding-top: 25px !important;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Rejilla de 2 campos */
+.row-two-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+/* Estilos de Iconos en Inputs */
+mat-icon[matPrefix] {
+  margin-right: 8px;
+  color: var(--text-dim);
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+}
+
+/* --- OVERRIDES DE COLOR DORADO --- */
+::ng-deep .mat-mdc-form-field.mat-focused .mat-mdc-floating-label,
+::ng-deep .mat-mdc-form-field.mat-focused mat-icon[matPrefix] {
+  color: var(--accent) !important;
+}
+
+::ng-deep .mat-mdc-form-field.mat-focused .mdc-notched-outline__leading,
+::ng-deep .mat-mdc-form-field.mat-focused .mdc-notched-outline__notch,
+::ng-deep .mat-mdc-form-field.mat-focused .mdc-notched-outline__trailing {
+  border-color: var(--accent) !important;
+  border-width: 2px !important;
+}
+
+/* --- BOTONES --- */
+mat-dialog-actions {
+  padding: 20px 24px !important;
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+}
+
+.btn-cancel {
+  color: #64748b !important;
+  font-weight: 600;
+}
+
+.btn-save {
+  background-color: var(--sidebar-bg) !important; /* Slate 900 */
+  color: var(--accent) !important; /* Dorado */
+  font-weight: 700 !important;
+  border-radius: 12px !important;
+  padding: 0 24px !important;
+  height: 45px !important;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2) !important;
+  transition: all 0.3s ease !important;
+}
+
+.btn-save:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(201, 162, 39, 0.2) !important;
+}
+
+.btn-save mat-icon {
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+  margin-right: 4px;
+}

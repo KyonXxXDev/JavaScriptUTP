@@ -1,20 +1,56 @@
 [
   {
-    "id": "9b2b41aa-e725-44ec-a410-3d53ecaea011",
-    "tipoDocumentoIdentidad": "RUC",
-    "nDocumento": "20608300393",
-    "nombre": "COMPAÑÍA FOOD RETAIL S.A.C.",
-    "estado": true,
-    "createdAt": "2026-02-05T03:53:58.520Z",
-    "updatedAt": null
-  },
-  {
-    "id": "0e8d0d51-bec9-4814-a7fa-ff0508f606b1",
+    "id": "a3ddbfff-d06f-4a86-8275-6807352a0501",
     "tipoDocumentoIdentidad": "RUC",
     "nDocumento": "20608280333",
     "nombre": "COMPAÑÍA HARD DISCOUNT S.A.C.",
     "estado": true,
-    "createdAt": "2026-02-05T04:55:39.098Z",
+    "createdAt": "2026-02-08T22:36:36.258Z",
+    "updatedAt": "2026-02-09T01:49:01.054Z"
+  },
+  {
+    "id": "1d3897cd-7719-4d6b-8a95-24d85efed3e7",
+    "tipoDocumentoIdentidad": "DNI",
+    "nDocumento": "73150977",
+    "nombre": "Exon Gabriel Rosas Ortiz",
+    "estado": false,
+    "createdAt": "2026-02-09T00:22:07.743Z",
+    "updatedAt": "2026-02-12T01:08:58.241Z"
+  },
+  {
+    "id": "8b5f8b59-6c27-4475-b8b1-ff393523cecf",
+    "tipoDocumentoIdentidad": "Carnet Extranjeria",
+    "nDocumento": "66777235",
+    "nombre": "FFabu",
+    "estado": false,
+    "createdAt": "2026-02-11T00:49:39.809Z",
+    "updatedAt": "2026-02-11T03:22:07.104Z"
+  },
+  {
+    "id": "4e8a922a-455b-4549-850c-2282e4c6332b",
+    "tipoDocumentoIdentidad": "RUC",
+    "nDocumento": "20608300393",
+    "nombre": "COMPAÑIA FOOD RETAIL S.A.C.",
+    "estado": true,
+    "createdAt": "2026-02-11T03:22:36.684Z",
+    "updatedAt": "2026-02-13T02:08:52.888Z"
+  },
+  {
+    "id": "5fa5ef85-f01e-4eb7-bd6a-bb20d5c4db0c",
+    "tipoDocumentoIdentidad": "RUC",
+    "nDocumento": "20607281921",
+    "nombre": "OPERADORA DE SERVICIOS LOGISTICOS S.A.C.",
+    "estado": true,
+    "createdAt": "2026-02-11T03:23:06.717Z",
+    "updatedAt": "2026-02-12T04:06:21.450Z"
+  },
+  {
+    "id": "ace45d09-abbe-4c59-8ebc-cf3a4fa2dfa2",
+    "tipoDocumentoIdentidad": "RUC",
+    "nDocumento": "20517905454",
+    "nombre": "Cencosud Peru S.a.",
+    "estado": true,
+    "createdAt": "2026-02-11T03:35:49.241Z",
     "updatedAt": null
   }
 ]

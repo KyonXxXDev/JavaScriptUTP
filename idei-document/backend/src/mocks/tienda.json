@@ -1,26 +1,38 @@
 [
   {
-    "id": "11d46e85-546c-4055-9b4f-b3c40eb2be6f",
-    "nombre": "Plaza Vea Higuereta",
-    "direccion": "Av. Siempre Viva 123",
-    "distrito": "Miraflores",
-    "provincia": "Lima",
-    "departamento": "Lima",
-    "asociacionId": "9b2b41aa-e725-44ec-a410-3d53ecaea011",
-    "estado": true,
-    "createdAt": "2026-02-05T04:41:27.488Z",
-    "updatedAt": null
+    "id": "311dc1de-94fe-4e85-b7ae-fbcdaa6d89f8",
+    "nombre": "Mass Alisos 8 SMP",
+    "direccion": "Av Alisos Argent 123 Lte 4",
+    "distrito": "110102",
+    "provincia": "1101",
+    "departamento": "11",
+    "asociacionId": "4e8a922a-455b-4549-850c-2282e4c6332b",
+    "estado": false,
+    "createdAt": "2026-02-12T01:40:16.334Z",
+    "updatedAt": "2026-02-12T02:07:18.566Z"
   },
   {
-    "id": "23351b5f-536e-4837-9b5d-62f33667c2d4",
-    "nombre": "Alamos 1 Ves",
-    "direccion": "Av. Siempre Viva 123",
-    "distrito": "Miraflores",
-    "provincia": "Lima",
-    "departamento": "Lima",
-    "asociacionId": "0e8d0d51-bec9-4814-a7fa-ff0508f606b1",
+    "id": "48628566-9d7a-44ba-9440-0acc6120fddb",
+    "nombre": "CD LATAM CALLAO",
+    "direccion": "Av. Aguilar Lt 34 Mz 1 123",
+    "distrito": "150101",
+    "provincia": "1501",
+    "departamento": "15",
+    "asociacionId": "4e8a922a-455b-4549-850c-2282e4c6332b",
     "estado": true,
-    "createdAt": "2026-02-05T04:57:22.984Z",
-    "updatedAt": null
+    "createdAt": "2026-02-12T01:58:32.265Z",
+    "updatedAt": "2026-02-12T04:06:12.742Z"
+  },
+  {
+    "id": "ca8001e6-ceb5-433b-91dd-9da4b850b999",
+    "nombre": "MASS Rizos 29 CB",
+    "direccion": "Av Rizon 1234 Con ggg",
+    "distrito": "110101",
+    "provincia": "1101",
+    "departamento": "11",
+    "asociacionId": "a3ddbfff-d06f-4a86-8275-6807352a0501",
+    "estado": true,
+    "createdAt": "2026-02-12T04:18:35.859Z",
+    "updatedAt": "2026-02-13T02:08:41.280Z"
   }
 ]

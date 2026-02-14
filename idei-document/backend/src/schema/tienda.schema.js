@@ -8,7 +8,7 @@ export class Tienda {
       departamento,
       // cantidadLe = 0,
       // cantidadDh = 0,
-      asociacionId
+      asociacionId,
     } = data;
 
     this.id = crypto.randomUUID();
