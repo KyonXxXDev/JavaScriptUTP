@@ -16,6 +16,7 @@ import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-certificado-dialog',
+  standalone: true,
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -90,8 +91,6 @@ export class CertificadoDialog implements OnInit {
       tipo: formValue.tipo,
       cantidad: Number(formValue.cantidad),
       fechaEmision: this.formatDateForBackend(formValue.fechaEmision),
-      // template: lo puedes generar aquí o dejar que el backend lo maneje
-      // template: formValue.tipo === 'LE' ? './src/template/certificado-le.html' : './src/template/certificado-dh.html'
     };
 
     this.certificadoService.generar(payload).subscribe({

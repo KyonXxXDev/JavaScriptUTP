@@ -1,5 +1,3 @@
-import { DateUtils } from "../web/js/global.js";
-
 export class Certificado {
     constructor({ data }) {
         const {
@@ -15,7 +13,7 @@ export class Certificado {
         this.cantidad = cantidad;
         this.tiendaId = tiendaId;
         this.template = template;
-        this.fechaEmision = DateUtils.formatDate({ fecha: fechaEmision });
+        this.fechaEmision = fechaEmision;
 
         this.estado = true;
         this.createdAt = new Date();

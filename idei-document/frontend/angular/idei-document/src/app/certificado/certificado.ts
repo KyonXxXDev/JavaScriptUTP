@@ -82,6 +82,7 @@ export class Certificado implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.loadData();
+        this.cdr.markForCheck();
       }
     });
   }
@@ -95,6 +96,7 @@ export class Certificado implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.loadData();
+        this.cdr.markForCheck();
       }
     });
   }
@@ -104,6 +106,7 @@ export class Certificado implements OnInit {
       this.certificadoService.delete(certificado.id).subscribe({
         next: () => {
           this.loadData();
+          this.cdr.markForCheck();
         },
         error: (err) => {
           console.error('Error al eliminar certificado:', err);

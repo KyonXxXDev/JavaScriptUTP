@@ -53,3 +53,6 @@ function formatDate({ fecha }) {
 }
 
 formatDate({ fecha: "12/12/2024" })
+
+
+console.log("fechaEmision".toUpperCase().slice(0, 3))
