@@ -112,11 +112,11 @@ export class Dashboard implements OnInit {
   }
 
   get totalLights(): number {
-    return this.records.filter(t => t.tipo === "DH").reduce((sum, r) => sum + (Number(r.cantidad) || 0), 0);
+    return this.records.filter(t => t.tipo === "LE").reduce((sum, r) => sum + (Number(r.cantidad) || 0), 0);
   }
 
   get totalDh(): number {
-    return this.records.filter(t => t.tipo === "LE").reduce((sum, r) => sum + (Number(r.cantidad) || 0), 0);
+    return this.records.filter(t => t.tipo === "DH").reduce((sum, r) => sum + (Number(r.cantidad) || 0), 0);
   }
 
   get last24h(): number {

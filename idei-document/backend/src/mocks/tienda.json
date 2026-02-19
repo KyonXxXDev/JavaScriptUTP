@@ -7,7 +7,7 @@
     "provincia": "1101",
     "departamento": "11",
     "asociacionId": "4e8a922a-455b-4549-850c-2282e4c6332b",
-    "estado": false,
+    "estado": true,
     "createdAt": "2026-02-12T01:40:16.334Z",
     "updatedAt": "2026-02-12T02:07:18.566Z"
   },
@@ -34,5 +34,29 @@
     "estado": true,
     "createdAt": "2026-02-12T04:18:35.859Z",
     "updatedAt": "2026-02-13T02:08:41.280Z"
+  },
+  {
+    "id": "7eb40616-764f-4f13-b503-b8d52009809d",
+    "nombre": "MASS IZAGUI 14 LO",
+    "direccion": "Los olivos 1223",
+    "distrito": "150117",
+    "provincia": "1501",
+    "departamento": "15",
+    "asociacionId": "a3ddbfff-d06f-4a86-8275-6807352a0501",
+    "estado": true,
+    "createdAt": "2026-02-19T02:24:42.317Z",
+    "updatedAt": "2026-02-19T02:34:16.122Z"
+  },
+  {
+    "id": "37bd316e-e8ac-45fa-b802-da712e59af5b",
+    "nombre": "MASS GUILLE 12",
+    "direccion": "AV. SIEMPRE VIVA",
+    "distrito": "130101",
+    "provincia": "1301",
+    "departamento": "13",
+    "asociacionId": "a3ddbfff-d06f-4a86-8275-6807352a0501",
+    "estado": true,
+    "createdAt": "2026-02-19T02:42:51.913Z",
+    "updatedAt": "2026-02-19T02:44:33.941Z"
   }
 ]

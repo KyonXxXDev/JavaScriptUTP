@@ -1,15 +1,36 @@
 export class DateUtils {
-    static formatDate({ fecha }) {
+    static async formatDate({ fecha }) {
         try {
-            const [day, month, year ] = fecha.split(/[-/.]/);
-            const date = new Date(year, month, day);
-            const options = {
+            if (!fecha || typeof fecha !== "string") {
+                throw new Error("Fecha inválida: debe ser string");
+            }
+
+            const parts = fecha.split(/[-/.]/);
+
+            if (parts.length !== 3) {
+                throw new Error("Formato inválido. Debe ser dd-mm-yyyy");
+            }
+
+            const [day, month, year] = parts;
+
+            const dayNum = Number(day);
+            const monthNum = Number(month);
+            const yearNum = Number(year);
+
+            const date = new Date(yearNum, monthNum - 1, dayNum);
+
+            const stringLargeDate = date.toLocaleDateString('es-ES', {
                 day: 'numeric',
                 month: 'long',
                 year: 'numeric'
-            }
-            console.log(date.toLocaleDateString('es-ES', options));
-            return date.toLocaleDateString('es-ES', options);
+            });
+
+            return {
+                day: dayNum,
+                month: monthNum,
+                year: yearNum,
+                stringLargeDate
+            };
         } catch (error) {
             console.error('Error formatting date', error.message);
         }
