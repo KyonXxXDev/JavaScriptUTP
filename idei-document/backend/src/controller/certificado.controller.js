@@ -12,6 +12,7 @@ export class CertificadoController {
   generar = async (req, res) => {
     const {tiendaId, tipo} = req.body;
     const { cantidad, fechaEmision } = req.body
+    console.log(fechaEmision)
     res.json(await this.service.generar({tiendaId, tipo, cantidad, fechaEmision}));
   };
 

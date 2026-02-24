@@ -49,26 +49,28 @@
                 <table class="records-table">
                     <thead>
                         <tr>
-                            <th>Tienda / Empresa</th>
-                            <th>Tipo</th>
-                            <th>Cantidad de Luces</th>
-                            <th>Fecha Emisión</th>
-                            <th>Registrado el</th>
+                            <th class="text-center">Tienda / Empresa</th>
+                            <th class="text-center">Tipo</th>
+                            <th class="text-center">Cantidad de Luces</th>
+                            <th class="text-center">Fecha Emisión</th>
+                            <th class="text-center">Fecha Vencimiento</th>
+                            <th class="text-center">Registrado el</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let record of filteredRecords">
-                            <td>
+                            <td class="text-center">
                                 <strong>{{ record.nombre || 'Tienda desconocida' }}</strong>
                             </td>
-                            <td>
+                            <td class="text-center">
                                 <span class="badge">
                                     {{ record.tipo }}
                                 </span>
                             </td>
                             <td class="text-center">{{ record.cantidad }}</td>
-                            <td>{{ record.fechaEmision }}</td>
-                            <td>{{ record.createdAt | date:'dd MMM yyyy HH:mm' }}</td>
+                            <td class="text-center">{{ record.fechaEmision | date:'short' }}</td>
+                            <td class="text-center">{{ record.fechaVencimiento | date:'short' }}</td>
+                            <td class="text-center">{{ record.createdAt | date:'short' }}</td>
                         </tr>
                     </tbody>
                 </table>

@@ -58,5 +58,17 @@
     "estado": true,
     "createdAt": "2026-02-19T02:42:51.913Z",
     "updatedAt": "2026-02-19T02:44:33.941Z"
+  },
+  {
+    "id": "ae159704-c426-4782-ba36-91015453cfca",
+    "nombre": "MASS IZAGUI 123",
+    "direccion": "av. laos olvios",
+    "distrito": "150101",
+    "provincia": "1501",
+    "departamento": "15",
+    "asociacionId": "a3ddbfff-d06f-4a86-8275-6807352a0501",
+    "estado": true,
+    "createdAt": "2026-02-22T20:38:26.165Z",
+    "updatedAt": null
   }
 ]

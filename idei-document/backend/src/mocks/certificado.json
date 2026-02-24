@@ -1,46 +1,26 @@
 [
   {
-    "id": "e05116ca-f17b-4ca8-9e11-f9437ebc5077",
+    "id": "148e6ecf-53b7-4e0b-a38e-968177924971",
     "tipo": "LE",
-    "cantidad": 112,
-    "tiendaId": "48628566-9d7a-44ba-9440-0acc6120fddb",
+    "cantidad": 2,
+    "tiendaId": "ae159704-c426-4782-ba36-91015453cfca",
     "template": "./src/template/certificado-le.html",
-    "fechaEmision": "18 de febrero de 2026",
-    "estado": true,
-    "createdAt": "2026-02-19T02:30:33.331Z",
-    "updatedAt": null
+    "fechaEmision": "2026-02-22T05:00:00.000Z",
+    "fechaVencimiento": "2026-02-28T05:00:00.000Z",
+    "estado": false,
+    "createdAt": "2026-02-22T20:49:47.739Z",
+    "updatedAt": "2026-02-22T21:45:05.922Z"
   },
   {
-    "id": "280d0fe3-f65b-4552-a510-3243ac3bf89e",
-    "tipo": "DH",
-    "cantidad": 5,
-    "tiendaId": "311dc1de-94fe-4e85-b7ae-fbcdaa6d89f8",
-    "template": "./src/template/certificado-dh.html",
-    "fechaEmision": "18 de febrero de 2026",
-    "estado": true,
-    "createdAt": "2026-02-19T02:30:57.372Z",
-    "updatedAt": null
-  },
-  {
-    "id": "5063f2e8-37b0-445f-9c58-b5cda974e187",
-    "tipo": "DH",
-    "cantidad": 5,
-    "tiendaId": "311dc1de-94fe-4e85-b7ae-fbcdaa6d89f8",
-    "template": "./src/template/certificado-dh.html",
-    "fechaEmision": "20 de febrero de 2026",
-    "estado": true,
-    "createdAt": "2026-02-19T02:32:16.496Z",
-    "updatedAt": null
-  },
-  {
-    "id": "f71c177e-9834-4232-a349-17b14748a3e5",
+    "id": "5d9d931d-ad65-4df9-b7d5-14d052e85f57",
     "tipo": "LE",
-    "cantidad": 12,
-    "tiendaId": "37bd316e-e8ac-45fa-b802-da712e59af5b",
+    "cantidad": 2,
+    "tiendaId": "ae159704-c426-4782-ba36-91015453cfca",
     "template": "./src/template/certificado-le.html",
-    "fechaEmision": "18 de febrero de 2026",
+    "fechaEmision": "2026-02-22T05:00:00.000Z",
+    "fechaVencimiento": "2027-02-22T05:00:00.000Z",
     "estado": true,
-    "createdAt": "2026-02-19T02:45:17.422Z",
+    "createdAt": "2026-02-22T21:44:49.831Z",
     "updatedAt": null
   }
 ]
