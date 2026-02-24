@@ -51,7 +51,7 @@ export class CertificadoService {
             tipo === "LE"
                 ? "./src/template/certificado-le.html"
                 : "./src/template/certificado-dh.html";
-        const { stringLargeDate, month, year } = await DateUtils.formatDate({ fecha: fechaEmision });
+        const { stringLargeDate, day, month, year } = await DateUtils.formatDate({ fecha: fechaEmision });
 
         const payload = {
             ...tienda,
@@ -79,7 +79,7 @@ export class CertificadoService {
                 cantidad,
                 tipo,
                 template,
-                fechaEmision: stringLargeDate
+                fechaEmision: `${year}-${month}-${day}`
             }
         });
     }

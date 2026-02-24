@@ -1,7 +1,7 @@
 export class Certificado {
     constructor({ data }) {
         const {
-            tipo,// 'LE' | 'DH'
+            tipo,
             tiendaId,
             cantidad,
             template,
@@ -13,7 +13,11 @@ export class Certificado {
         this.cantidad = cantidad;
         this.tiendaId = tiendaId;
         this.template = template;
-        this.fechaEmision = fechaEmision;
+        this.fechaEmision = new Date(fechaEmision);
+
+        const fechaVencimiento = new Date(this.fechaEmision);
+        fechaVencimiento.setFullYear(fechaVencimiento.getFullYear() + 1);
+        this.fechaVencimiento = fechaVencimiento;
 
         this.estado = true;
         this.createdAt = new Date();

@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TiendaService } from '../services/tienda.service';
 import { CertificadoModel } from '../models/certificado.model';
+import { CertificadoService } from '../services/certificado.service';
 
 
 @Component({
@@ -15,6 +16,7 @@ import { CertificadoModel } from '../models/certificado.model';
 export class Dashboard implements OnInit {
   records: (CertificadoModel & { nombre?: string })[] = [];
   filteredRecords: (CertificadoModel & { nombre?: string })[] = [];
+  certificadosProximos: CertificadoModel[] = [];
   search = '';
   sortType = 'newest';
 
@@ -22,13 +24,26 @@ export class Dashboard implements OnInit {
 
   private readonly cdr = inject(ChangeDetectorRef);
   private readonly dashboardService = inject(DashboardService);
+  private readonly certificadoService = inject(CertificadoService);
   private readonly tiendaService = inject(TiendaService);
 
   ngOnInit(): void {
     this.loadData();
+    this.certificadoService.getAll().subscribe(res => {
+      this.records = res;
+
+      this.certificadosProximos = this.records.filter(c =>
+        this.isProximoAVencer(c)
+      );
+
+      if (this.certificadosProximos.length > 0) {
+        alert(`Tienes ${this.certificadosProximos.length} certificados por vencer`);
+      }
+    });
   }
+  
   exportToCSV() {
-    
+
   }
   loadData(): void {
     this.cdr.markForCheck();
@@ -45,7 +60,7 @@ export class Dashboard implements OnInit {
         this.dashboardService.getRecords().subscribe({
           next: (data: CertificadoModel[]) => {
             // Enriquecer cada record con el nombre de la tienda
-            
+
             this.records = data.map(record => ({
               ...record,
               nombre: this.tiendasMap.get(record.tiendaId) || 'Tienda desconocida'
@@ -105,7 +120,7 @@ export class Dashboard implements OnInit {
     }
     this.cdr.markForCheck();
   }
-  
+
 
   get totalRecords(): number {
     return this.records.length;
@@ -124,5 +139,15 @@ export class Dashboard implements OnInit {
     return this.records.filter(r =>
       new Date(r.createdAt).getTime() > limit
     ).length;
+  }
+
+  isProximoAVencer(certificado: CertificadoModel): boolean {
+    const hoy = new Date();
+    const vencimiento = new Date(certificado.fechaVencimiento);
+
+    const diferenciaMs = vencimiento.getTime() - hoy.getTime();
+    const diasRestantes = diferenciaMs / (1000 * 60 * 60 * 24);
+
+    return diasRestantes <= 30 && diasRestantes > 0;
   }
 }

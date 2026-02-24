@@ -13,10 +13,12 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-certificado',
   imports: [
+    DatePipe,
     MatTableModule,
     MatFormFieldModule,
     MatInputModule,
@@ -45,7 +47,7 @@ export class Certificado implements OnInit {
   totalItems = 0;
 
   displayedColumns: string[] = [
-    'id', 'tipo', 'tiendaId', 'cantidad', 'fechaEmision', 'estado', 'actions'
+    'id', 'tipo', 'tiendaId', 'cantidad', 'fechaEmision', 'fechaVencimiento', 'estado', 'actions'
   ];
 
   filterValue = '';
