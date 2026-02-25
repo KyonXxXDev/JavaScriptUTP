@@ -3,10 +3,10 @@ h2[mat-dialog-title] {
   display: flex;
   align-items: center;
   gap: 12px;
-  color: var(--sidebar-bg); /* Slate 900 */
+  color: var(--text-primary);
   font-weight: 800;
   padding: 24px 24px 15px;
-  border-bottom: 2px solid #f1f5f9;
+  border-bottom: 2px solid var(--border-color);
 }
 
 .title-icon {
@@ -37,7 +37,7 @@ h2[mat-dialog-title] {
 /* Iconos de entrada */
 mat-icon[matPrefix] {
   margin-right: 10px;
-  color: #94a3b8;
+  color: var(--text-dim);
   font-size: 20px;
   width: 20px;
   height: 20px;
@@ -59,28 +59,30 @@ mat-icon[matPrefix] {
 /* --- BOTONES --- */
 mat-dialog-actions {
   padding: 20px 24px !important;
-  background: #f8fafc;
-  border-top: 1px solid #e2e8f0;
+  background: var(--table-header-bg);
+  border-top: 1px solid var(--border-color);
 }
 
 .btn-cancel {
-  color: #64748b !important;
+  color: var(--text-dim) !important;
   font-weight: 600;
 }
 
 .btn-save {
-  background-color: var(--sidebar-bg) !important;
-  color: var(--accent) !important;
+  background-color: var(--btn-primary-bg) !important;
+  color: var(--btn-primary-text) !important;
   font-weight: 700 !important;
   border-radius: 12px !important;
   padding: 0 24px !important;
   height: 48px !important;
   box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2) !important;
+  transition: all 0.3s ease !important;
 }
 
 .btn-save:hover:not(:disabled) {
   transform: translateY(-2px);
-  background-color: #1e293b !important;
+  box-shadow: 0 6px 15px rgba(201, 162, 39, 0.3) !important;
+  filter: brightness(1.1);
 }
 
 .btn-save mat-icon {

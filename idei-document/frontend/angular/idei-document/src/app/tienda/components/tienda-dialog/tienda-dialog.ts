@@ -71,7 +71,6 @@ export class TiendaDialog implements OnInit {
       provincia: [data?.provincia || '', Validators.required],
       distrito: [data?.distrito || '', Validators.required],
       asociacionId: [data?.asociacionId || '', Validators.required],
-      // estado: [data?.estado ?? true],
     });
   }
 
@@ -79,7 +78,6 @@ export class TiendaDialog implements OnInit {
     this.cargarDepartamentos();
     this.cargarAsociaciones();
 
-    // Si estamos editando, cargar las listas dependientes
     if (this.isEditMode && this.data) {
       this.cargarDatosDependientesAlEditar();
     }
@@ -99,7 +97,6 @@ export class TiendaDialog implements OnInit {
         error: (err) => {
           console.error('Error al cargar departamentos', err);
           this.cdr.markForCheck();
-          // Aquí podrías mostrar un mensaje al usuario con MatSnackBar
         },
       });
   }
@@ -118,7 +115,6 @@ export class TiendaDialog implements OnInit {
         error: (err) => {
           console.error('Error al cargar departamentos', err);
           this.cdr.markForCheck();
-          // Aquí podrías mostrar un mensaje al usuario con MatSnackBar
         },
       });
   }
@@ -221,7 +217,6 @@ export class TiendaDialog implements OnInit {
         error: (err) => {
           console.error('Error al actualizar tienda:', err);
           this.cdr.markForCheck();
-          // Aquí podrías mostrar error al usuario
         },
       });
     } else {
@@ -230,7 +225,6 @@ export class TiendaDialog implements OnInit {
         error: (err) => {
           console.error('Error al crear tienda:', err);
           this.cdr.markForCheck();
-          // Aquí podrías mostrar error al usuario
         },
       });
     }

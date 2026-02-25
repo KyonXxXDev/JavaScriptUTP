@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TiendaService } from '../services/tienda.service';
 import { CertificadoModel } from '../models/certificado.model';
-import { CertificadoService } from '../services/certificado.service';
 
 
 @Component({
@@ -16,7 +15,9 @@ import { CertificadoService } from '../services/certificado.service';
 export class Dashboard implements OnInit {
   records: (CertificadoModel & { nombre?: string })[] = [];
   filteredRecords: (CertificadoModel & { nombre?: string })[] = [];
-  certificadosProximos: CertificadoModel[] = [];
+  certificadosProximos: (CertificadoModel & { nombre?: string; diasRestantes?: number })[] = [];
+  certificadosVencidos: (CertificadoModel & { nombre?: string; diasRestantes?: number })[] = [];
+  alertaVisible = true;
   search = '';
   sortType = 'newest';
 
@@ -24,26 +25,46 @@ export class Dashboard implements OnInit {
 
   private readonly cdr = inject(ChangeDetectorRef);
   private readonly dashboardService = inject(DashboardService);
-  private readonly certificadoService = inject(CertificadoService);
   private readonly tiendaService = inject(TiendaService);
 
   ngOnInit(): void {
     this.loadData();
-    this.certificadoService.getAll().subscribe(res => {
-      this.records = res;
-
-      this.certificadosProximos = this.records.filter(c =>
-        this.isProximoAVencer(c)
-      );
-
-      if (this.certificadosProximos.length > 0) {
-        alert(`Tienes ${this.certificadosProximos.length} certificados por vencer`);
-      }
-    });
   }
   
-  exportToCSV() {
+  exportToCSV(): void {
+    const rows = this.filteredRecords.length > 0 ? this.filteredRecords : this.records;
 
+    if (rows.length === 0) {
+      alert('No hay registros para exportar');
+      return;
+    }
+
+    const headers = [
+      'Tienda',
+      'Tipo',
+      'Cantidad',
+      'Fecha Emisión',
+      'Fecha Vencimiento',
+      'Registrado el'
+    ];
+
+    const csvRows = rows.map(record => [
+      this.toCsvValue(record.nombre || 'Tienda desconocida'),
+      this.toCsvValue(record.tipo),
+      this.toCsvValue(record.cantidad),
+      this.toCsvValue(this.formatDate(record.fechaEmision)),
+      this.toCsvValue(this.formatDate(record.fechaVencimiento)),
+      this.toCsvValue(this.formatDateTime(record.createdAt))
+    ].join(','));
+
+    const csvContent = ['\uFEFF' + headers.join(','), ...csvRows].join('\n');
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `certificados_${this.formatFileDate(new Date())}.csv`;
+    link.click();
+    URL.revokeObjectURL(url);
   }
   loadData(): void {
     this.cdr.markForCheck();
@@ -67,6 +88,7 @@ export class Dashboard implements OnInit {
             }));
             console.log("RECORDS", this.records)
             this.filteredRecords = [...this.records];
+            this.buildAlertas();
             this.applySort();
             this.cdr.markForCheck();
           },
@@ -149,5 +171,73 @@ export class Dashboard implements OnInit {
     const diasRestantes = diferenciaMs / (1000 * 60 * 60 * 24);
 
     return diasRestantes <= 30 && diasRestantes > 0;
+  }
+
+  isVencido(certificado: CertificadoModel): boolean {
+    const hoy = new Date();
+    const vencimiento = new Date(certificado.fechaVencimiento);
+    return vencimiento.getTime() < hoy.getTime();
+  }
+
+  getDiasRestantes(certificado: CertificadoModel): number {
+    const hoy = new Date();
+    const vencimiento = new Date(certificado.fechaVencimiento);
+    const diferenciaMs = vencimiento.getTime() - hoy.getTime();
+    return Math.ceil(diferenciaMs / (1000 * 60 * 60 * 24));
+  }
+
+  dismissAlert(): void {
+    this.alertaVisible = false;
+  }
+
+  private buildAlertas(): void {
+    const proximos: (CertificadoModel & { nombre?: string; diasRestantes?: number })[] = [];
+    const vencidos: (CertificadoModel & { nombre?: string; diasRestantes?: number })[] = [];
+
+    this.records.forEach(certificado => {
+      const diasRestantes = this.getDiasRestantes(certificado);
+
+      if (diasRestantes <= 0) {
+        vencidos.push({ ...certificado, diasRestantes });
+        return;
+      }
+
+      if (diasRestantes <= 30) {
+        proximos.push({ ...certificado, diasRestantes });
+      }
+    });
+
+    this.certificadosProximos = proximos.sort((a, b) => (a.diasRestantes || 0) - (b.diasRestantes || 0));
+    this.certificadosVencidos = vencidos.sort((a, b) => (a.diasRestantes || 0) - (b.diasRestantes || 0));
+    this.alertaVisible = this.certificadosProximos.length > 0 || this.certificadosVencidos.length > 0;
+  }
+
+  private formatDate(value: string | Date | null | undefined): string {
+    if (!value) {
+      return '';
+    }
+    const date = new Date(value);
+    return isNaN(date.getTime()) ? '' : date.toLocaleDateString('es-PE');
+  }
+
+  private formatDateTime(value: string | Date | null | undefined): string {
+    if (!value) {
+      return '';
+    }
+    const date = new Date(value);
+    return isNaN(date.getTime()) ? '' : date.toLocaleString('es-PE');
+  }
+
+  private formatFileDate(value: Date): string {
+    const year = value.getFullYear();
+    const month = `${value.getMonth() + 1}`.padStart(2, '0');
+    const day = `${value.getDate()}`.padStart(2, '0');
+    return `${year}${month}${day}`;
+  }
+
+  private toCsvValue(value: unknown): string {
+    const text = String(value ?? '');
+    const escaped = text.replace(/"/g, '""');
+    return `"${escaped}"`;
   }
 }

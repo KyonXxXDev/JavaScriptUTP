@@ -70,5 +70,17 @@
     "estado": true,
     "createdAt": "2026-02-22T20:38:26.165Z",
     "updatedAt": null
+  },
+  {
+    "id": "0565dac3-ef85-4ef7-b244-1055186ebc18",
+    "nombre": "UTP Lima Centro",
+    "direccion": "Av. Arequipa 532",
+    "distrito": "150101",
+    "provincia": "1501",
+    "departamento": "15",
+    "asociacionId": "ace45d09-abbe-4c59-8ebc-cf3a4fa2dfa2",
+    "estado": true,
+    "createdAt": "2026-02-24T07:10:46.551Z",
+    "updatedAt": null
   }
 ]

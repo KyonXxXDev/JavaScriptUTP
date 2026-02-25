@@ -2,11 +2,11 @@
 h2[mat-dialog-title] {
   margin: 0;
   padding: 24px 24px 10px 24px;
-  color: var(--sidebar-bg); /* Slate 900 */
+  color: var(--text-primary);
   font-weight: 800;
   font-size: 1.5rem;
   letter-spacing: -0.5px;
-  border-bottom: 2px solid #f1f5f9;
+  border-bottom: 2px solid var(--border-color);
 }
 
 /* Contenedor de Contenido */
@@ -47,7 +47,7 @@ h2[mat-dialog-title] {
 /* Checkbox Personalizado */
 mat-checkbox {
   margin: 8px 0;
-  color: var(--sidebar-bg);
+  color: var(--text-primary);
   font-weight: 500;
 }
 
@@ -59,18 +59,18 @@ mat-checkbox {
 /* Acciones/Botones */
 mat-dialog-actions {
   padding: 20px 24px !important;
-  background: #f8fafc;
-  border-top: 1px solid #e2e8f0;
+  background: var(--table-header-bg);
+  border-top: 1px solid var(--border-color);
 }
 
 .btn-cancel {
-  color: #64748b !important;
+  color: var(--text-dim) !important;
   font-weight: 600;
 }
 
 .btn-save {
-  background-color: var(--sidebar-bg) !important; /* Fondo Oscuro */
-  color: var(--accent) !important; /* Texto Dorado */
+  background-color: var(--btn-primary-bg) !important;
+  color: var(--btn-primary-text) !important;
   font-weight: 700 !important;
   padding: 0 24px !important;
   height: 45px !important;
@@ -81,11 +81,11 @@ mat-dialog-actions {
 
 .btn-save:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(201, 162, 39, 0.2) !important;
-  background-color: #1e293b !important;
+  box-shadow: 0 6px 15px rgba(201, 162, 39, 0.3) !important;
+  filter: brightness(1.1);
 }
 
 .btn-save:disabled {
-  background-color: #e2e8f0 !important;
-  color: #94a3b8 !important;
+  background-color: var(--btn-disabled-bg) !important;
+  color: var(--btn-disabled-text) !important;
 }

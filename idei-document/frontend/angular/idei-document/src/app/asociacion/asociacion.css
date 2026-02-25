@@ -18,7 +18,7 @@
   margin: 0;
   font-size: 1.8rem;
   font-weight: 800;
-  color: var(--sidebar-bg);
+  color: var(--text-primary);
 }
 
 .subtitle {
@@ -30,8 +30,8 @@
 .search-box {
   display: flex;
   align-items: center;
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
+  background: var(--search-bg);
+  border: 1px solid var(--border-color);
   border-radius: 12px;
   padding: 8px 16px;
   width: 100%;
@@ -41,7 +41,6 @@
 
 .search-box:focus-within {
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.1);
 }
 
 .search-box input {
@@ -63,10 +62,10 @@
 
 /* Tarjeta Individual */
 .assoc-card {
-  background: white;
+  background: var(--bg-card);
   border-radius: 16px;
   overflow: hidden;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--border-color);
   position: relative;
   transition: transform 0.3s, box-shadow 0.3s;
   display: flex;
@@ -108,7 +107,7 @@
 .assoc-name {
   margin: 10px 0 5px 0;
   font-size: 1.1rem;
-  color: var(--sidebar-bg);
+  color: var(--text-primary);
 }
 
 .assoc-doc {
@@ -135,7 +134,7 @@
 
 .action-btn {
   border: none;
-  background: #f1f5f9;
+  background: var(--action-btn-bg);
   width: 36px;
   height: 36px;
   border-radius: 10px;
@@ -144,6 +143,7 @@
   align-items: center;
   justify-content: center;
   transition: all 0.2s;
+  color: var(--action-btn-text);
 }
 
 .edit:hover { background: #dcfce7; color: #16a34a; }
@@ -158,8 +158,8 @@
   width: 60px;
   height: 60px;
   border-radius: 20px;
-  background: var(--sidebar-bg);
-  color: var(--accent);
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
   border: none;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   cursor: pointer;
@@ -173,5 +173,5 @@
 .fab-button:hover {
   transform: scale(1.1) rotate(90deg);
   background: var(--accent);
-  color: var(--sidebar-bg);
+  filter: brightness(1.1);
 }

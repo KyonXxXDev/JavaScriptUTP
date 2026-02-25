@@ -23,7 +23,7 @@
         <mat-icon matPrefix>lightbulb</mat-icon>
         <mat-select formControlName="tipo">
           <mat-option value="LE">LE (Luces Estándar)</mat-option>
-          <mat-option value="DH">DH (Luces Decorativas)</mat-option>
+          <mat-option value="DH">DH (Detectores de humo)</mat-option>
         </mat-select>
         <mat-error *ngIf="form.get('tipo')?.hasError('required')">Requerido</mat-error>
       </mat-form-field>

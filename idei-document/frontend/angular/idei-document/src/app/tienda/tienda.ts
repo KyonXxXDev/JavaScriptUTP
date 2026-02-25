@@ -32,17 +32,17 @@ export class Tienda implements AfterViewInit, OnInit {
   title: string = "Tiendas";
   private readonly tiendaService = inject(TiendaService);
   isLoadingResults = false;
-  totalItems: number = 0;  // Inicializa directamente con 0 (no uses this.data.length aquí)
+  totalItems: number = 0;
 
   displayedColumns: string[] = ['id', 'nombre', 'direccion', 'distrito', 'provincia', 'departamento', 'estado', 'actions'];
 
   data: TiendaModel[] = [];
-  dataSource = new MatTableDataSource<TiendaModel>(this.data);  // Usa TiendaModel para tipado fuerte
+  dataSource = new MatTableDataSource<TiendaModel>(this.data);
 
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private readonly cdr: ChangeDetectorRef, private readonly dialog: MatDialog) { }  // No inicialices totalItems aquí con data
+  constructor(private readonly cdr: ChangeDetectorRef, private readonly dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.loadData();
@@ -51,18 +51,18 @@ export class Tienda implements AfterViewInit, OnInit {
 
   loadData() {
     this.isLoadingResults = true;
-    this.cdr.markForCheck();  // Marca para check inicial (loading cambia)
+    this.cdr.markForCheck();
 
     this.tiendaService.getAll().subscribe({
       next: (data) => {
         this.data = data;
-        this.dataSource.data = data;  // Actualiza la fuente de datos
+        this.dataSource.data = data;
         this.totalItems = data.length;
         this.isLoadingResults = false;
-        this.cdr.markForCheck();  // Marca para verificación después del async (evita el error)
+        this.cdr.markForCheck();
       },
       error: (err) => {
-        console.error('Error loading tiendas:', err);  // Log para debug
+        console.error('Error loading tiendas:', err);
         this.isLoadingResults = false;
         this.cdr.markForCheck();
       }
@@ -72,7 +72,7 @@ export class Tienda implements AfterViewInit, OnInit {
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
-    this.cdr.markForCheck();  // Opcional: por si el paginador necesita un refresh inicial
+    this.cdr.markForCheck();
   }
 
   applyFilter(event: Event) {

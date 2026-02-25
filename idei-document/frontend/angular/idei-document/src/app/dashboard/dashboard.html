@@ -30,6 +30,33 @@
             </div>
         </section>
 
+        <!-- Alertas de vencimiento -->
+        <section class="alert-section"
+            *ngIf="alertaVisible && (certificadosVencidos.length > 0 || certificadosProximos.length > 0)">
+            <div class="alert-header">
+                <h3>Alertas de certificados</h3>
+                <button class="alert-dismiss" (click)="dismissAlert()">Cerrar</button>
+            </div>
+
+            <div class="alert-card alert-danger" *ngIf="certificadosVencidos.length > 0">
+                <p><strong>{{ certificadosVencidos.length }}</strong> certificados vencidos</p>
+                <ul>
+                    <li *ngFor="let item of certificadosVencidos | slice:0:5">
+                        {{ item.nombre || 'Tienda desconocida' }} · {{ item.tipo }} · Vencido
+                    </li>
+                </ul>
+            </div>
+
+            <div class="alert-card alert-warning" *ngIf="certificadosProximos.length > 0">
+                <p><strong>{{ certificadosProximos.length }}</strong> certificados por vencer (30 días)</p>
+                <ul>
+                    <li *ngFor="let item of certificadosProximos | slice:0:5">
+                        {{ item.nombre || 'Tienda desconocida' }} · {{ item.tipo }} · {{ item.diasRestantes }} días
+                    </li>
+                </ul>
+            </div>
+        </section>
+
         <!-- Filtros -->
         <section class="filters-section">
             <input type="text" class="search-box" placeholder="🔍 Buscar por nombre de tienda o tipo..."
@@ -58,7 +85,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let record of filteredRecords">
+                        <tr *ngFor="let record of filteredRecords"
+                            [class.row-warning]="isProximoAVencer(record)"
+                            [class.row-danger]="isVencido(record)">
                             <td class="text-center">
                                 <strong>{{ record.nombre || 'Tienda desconocida' }}</strong>
                             </td>
@@ -69,7 +98,14 @@
                             </td>
                             <td class="text-center">{{ record.cantidad }}</td>
                             <td class="text-center">{{ record.fechaEmision | date:'short' }}</td>
-                            <td class="text-center">{{ record.fechaVencimiento | date:'short' }}</td>
+                            <td class="text-center">
+                                {{ record.fechaVencimiento | date:'short' }}
+                                <span class="vencimiento-chip chip-danger" *ngIf="isVencido(record)">Vencido</span>
+                                <span class="vencimiento-chip" *ngIf="!isVencido(record)"
+                                    [class.chip-warning]="isProximoAVencer(record)">
+                                    {{ getDiasRestantes(record) }} días
+                                </span>
+                            </td>
                             <td class="text-center">{{ record.createdAt | date:'short' }}</td>
                         </tr>
                     </tbody>
