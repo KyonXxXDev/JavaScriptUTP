@@ -22,5 +22,53 @@
     "estado": true,
     "createdAt": "2026-02-22T21:44:49.831Z",
     "updatedAt": null
+  },
+  {
+    "id": "cce068f5-d89e-4288-9a41-87fe2699f5c1",
+    "tipo": "DH",
+    "cantidad": 20,
+    "tiendaId": "48628566-9d7a-44ba-9440-0acc6120fddb",
+    "template": "./src/template/certificado-dh.html",
+    "fechaEmision": "2026-02-24T05:00:00.000Z",
+    "fechaVencimiento": "2027-02-24T05:00:00.000Z",
+    "estado": true,
+    "createdAt": "2026-02-24T07:04:12.323Z",
+    "updatedAt": null
+  },
+  {
+    "id": "cb35a76d-01fa-4b3b-adff-5dd323b617d3",
+    "tipo": "DH",
+    "cantidad": 5,
+    "tiendaId": "48628566-9d7a-44ba-9440-0acc6120fddb",
+    "template": "./src/template/certificado-dh.html",
+    "fechaEmision": "2026-02-19T05:00:00.000Z",
+    "fechaVencimiento": "2027-02-19T05:00:00.000Z",
+    "estado": true,
+    "createdAt": "2026-02-24T07:09:50.923Z",
+    "updatedAt": null
+  },
+  {
+    "id": "e6e8244c-4939-4478-a32c-f08a03984e04",
+    "tipo": "DH",
+    "cantidad": 6,
+    "tiendaId": "0565dac3-ef85-4ef7-b244-1055186ebc18",
+    "template": "./src/template/certificado-dh.html",
+    "fechaEmision": "2025-02-24T05:00:00.000Z",
+    "fechaVencimiento": "2026-02-24T05:00:00.000Z",
+    "estado": true,
+    "createdAt": "2026-02-24T16:27:44.140Z",
+    "updatedAt": null
+  },
+  {
+    "id": "c58a3d94-4d96-4c3a-8cee-c5c46d6ca357",
+    "tipo": "LE",
+    "cantidad": 5,
+    "tiendaId": "7eb40616-764f-4f13-b503-b8d52009809d",
+    "template": "./src/template/certificado-le.html",
+    "fechaEmision": "2025-02-25T05:00:00.000Z",
+    "fechaVencimiento": "2026-02-25T05:00:00.000Z",
+    "estado": true,
+    "createdAt": "2026-02-24T22:57:10.664Z",
+    "updatedAt": null
   }
 ]

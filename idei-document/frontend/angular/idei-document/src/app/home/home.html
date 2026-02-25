@@ -3,11 +3,29 @@
     <div class="welcome-text">
       <h1>Bienvenido al Panel <span class="text-accent">IDEI-PERU</span></h1>
       <p>Gestión inteligente de registros y certificación de iluminación.</p>
+      <p class="admin-subtitle">Panel administrativo centralizado.</p>
     </div>
-    <div class="current-date">
-      📅 {{ today | date:'longDate' }}
+    <div class="header-actions">
+      <div class="current-date">
+        📅 {{ today | date:'longDate' }}
+      </div>
     </div>
   </header>
+
+  <section class="admin-overview">
+    <div class="overview-card">
+      <h3>Dashboard</h3>
+      <p>Seguimiento de registros, vencimientos y estadísticas.</p>
+    </div>
+    <div class="overview-card">
+      <h3>Control de vigencia</h3>
+      <p>Monitoreo automático de fechas y estado de certificados.</p>
+    </div>
+    <div class="overview-card">
+      <h3>Exportación de datos</h3>
+      <p>Descarga de registros en CSV para análisis y documentación.</p>
+    </div>
+  </section>
 
   <div class="quick-actions">
     <a class="action-card" routerLink="/dashboard">
@@ -52,5 +70,14 @@
       <div class="status-indicator"></div>
       <p><strong>Sistema Operativo:</strong> Todos los servicios están funcionando correctamente.</p>
     </div>
+  </section>
+
+  <section class="admin-guide">
+    <h3>Inicio rápido</h3>
+    <ul>
+      <li>Consulta el dashboard para visualizar el estado de registros.</li>
+      <li>Mantén actualizado el catálogo de tiendas y asociaciones.</li>
+      <li>Utiliza exportación CSV para integración con sistemas externos.</li>
+    </ul>
   </section>
 </div>

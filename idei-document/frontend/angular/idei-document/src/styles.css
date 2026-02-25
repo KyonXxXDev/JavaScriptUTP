@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
+
+/* Variables modo claro (por defecto) */
 :root {
     --primary: #1F3A5F;
     --secondary: #F5F7FA;
@@ -8,4 +10,189 @@
     --text-secondary: #6B7280;
     --success: #2E7D32;
     --error: #B3261E;
+    --bg-surface: #ffffff;
+    --bg-card: #ffffff;
+    --border-color: #e2e8f0;
+    
+    /* Nuevas variables para componentes */
+    --sidebar-bg: #0f172a;
+    --text-dim: #94a3b8;
+    --table-header-bg: #f8fafc;
+    --table-row-hover: #f8fafc;
+    --table-border: #f1f5f9;
+    --search-bg: #f8fafc;
+    --badge-bg: #f1f5f9;
+    --badge-text: #475569;
+    --action-btn-bg: #f1f5f9;
+    --action-btn-text: #64748b;
+    --input-bg: transparent;
+    --input-text: #0f172a;
+    --btn-primary-bg: #0f172a;
+    --btn-primary-text: #C9A227;
+    --btn-disabled-bg: #e2e8f0;
+    --btn-disabled-text: #94a3b8;
+}
+
+/* Variables modo oscuro */
+[data-theme="dark"] {
+    --primary: #4A6FA5;
+    --secondary: #1e293b;
+    --accent: #D4AF37;
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --success: #4ade80;
+    --error: #f87171;
+    --bg-surface: #0f172a;
+    --bg-card: #1e293b;
+    --border-color: #334155;
+    
+    /* Nuevas variables para componentes - modo oscuro */
+    --sidebar-bg: #f1f5f9;
+    --text-dim: #94a3b8;
+    --table-header-bg: #1e293b;
+    --table-row-hover: #334155;
+    --table-border: #334155;
+    --search-bg: #1e293b;
+    --badge-bg: #334155;
+    --badge-text: #cbd5e1;
+    --action-btn-bg: #334155;
+    --action-btn-text: #94a3b8;
+    --input-bg: #1e293b;
+    --input-text: #f1f5f9;
+    --btn-primary-bg: #D4AF37;
+    --btn-primary-text: #0f172a;
+    --btn-disabled-bg: #334155;
+    --btn-disabled-text: #64748b;
+}
+
+/* Transiciones suaves para el cambio de tema */
+*, *::before, *::after {
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.15s ease;
+}
+
+/* Mejoras globales para modo oscuro */
+[data-theme="dark"] input,
+[data-theme="dark"] select,
+[data-theme="dark"] textarea {
+    background-color: var(--input-bg) !important;
+    color: var(--input-text) !important;
+    border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] input::placeholder {
+    color: var(--text-dim) !important;
+}
+
+/* Paginador en modo oscuro */
+[data-theme="dark"] .mat-mdc-paginator {
+    background: var(--bg-card) !important;
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .mat-mdc-paginator-container {
+    background: transparent !important;
+}
+
+[data-theme="dark"] .mat-mdc-select-value,
+[data-theme="dark"] .mat-mdc-paginator-page-size-label,
+[data-theme="dark"] .mat-mdc-paginator-range-label {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .mat-mdc-select-arrow {
+    color: var(--text-dim) !important;
+}
+
+[data-theme="dark"] .mat-mdc-icon-button {
+    color: var(--text-primary) !important;
+}
+
+/* Tabla - filas en modo oscuro */
+[data-theme="dark"] .mat-mdc-row,
+[data-theme="dark"] tr.mat-mdc-row {
+    background: var(--bg-card) !important;
+}
+
+[data-theme="dark"] .mat-mdc-row:nth-child(even),
+[data-theme="dark"] tr.mat-mdc-row:nth-child(even) {
+    background: var(--bg-surface) !important;
+}
+
+[data-theme="dark"] .mat-mdc-row:hover,
+[data-theme="dark"] tr.mat-mdc-row:hover {
+    background: var(--table-row-hover) !important;
+}
+
+[data-theme="dark"] .mat-mdc-header-row {
+    background: var(--table-header-bg) !important;
+}
+
+[data-theme="dark"] .mat-mdc-cell,
+[data-theme="dark"] .mat-mdc-header-cell {
+    border-bottom-color: var(--table-border) !important;
+}
+
+/* Diálogos en modo oscuro */
+[data-theme="dark"] .mat-mdc-dialog-container,
+[data-theme="dark"] .mat-mdc-dialog-surface {
+    background: var(--bg-card) !important;
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] mat-dialog-actions,
+[data-theme="dark"] .mat-mdc-dialog-actions {
+    background: var(--bg-surface) !important;
+    border-top-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] h2[mat-dialog-title] {
+    color: var(--text-primary) !important;
+    border-bottom-color: var(--border-color) !important;
+}
+
+/* Inputs - quitar outline azul y usar dorado */
+[data-theme="dark"] .mat-mdc-form-field-focus-overlay {
+    background: transparent !important;
+}
+
+.mat-mdc-form-field.mat-focused .mdc-notched-outline__leading,
+.mat-mdc-form-field.mat-focused .mdc-notched-outline__notch,
+.mat-mdc-form-field.mat-focused .mdc-notched-outline__trailing {
+    border-color: var(--accent) !important;
+}
+
+[data-theme="dark"] .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__leading,
+[data-theme="dark"] .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__notch,
+[data-theme="dark"] .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing {
+    border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .mat-mdc-form-field .mdc-text-field__input {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .mat-mdc-select-value-text {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .mat-mdc-floating-label {
+    color: var(--text-dim) !important;
+}
+
+/* Select dropdown en modo oscuro */
+[data-theme="dark"] .mat-mdc-select-panel {
+    background: var(--bg-card) !important;
+}
+
+[data-theme="dark"] .mat-mdc-option {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .mat-mdc-option:hover {
+    background: var(--table-row-hover) !important;
+}
+
+[data-theme="dark"] .mat-mdc-option.mat-mdc-option-active {
+    background: var(--accent) !important;
+    color: var(--bg-surface) !important;
 }

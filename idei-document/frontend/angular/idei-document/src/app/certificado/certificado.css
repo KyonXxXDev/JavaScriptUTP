@@ -11,7 +11,7 @@
   margin: 0;
   font-size: 1.8rem;
   font-weight: 800;
-  color: var(--sidebar-bg);
+  color: var(--text-primary);
 }
 
 .subtitle {
@@ -23,8 +23,8 @@
 .search-box {
   display: flex;
   align-items: center;
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
+  background: var(--search-bg);
+  border: 1px solid var(--border-color);
   border-radius: 12px;
   padding: 8px 16px;
   width: 100%;
@@ -34,7 +34,6 @@
 
 .search-box:focus-within {
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.1);
 }
 
 .search-box input {
@@ -121,8 +120,8 @@ table {
 
 /* Botón Primario Estilo IDEI */
 .btn-primary {
-  background-color: var(--sidebar-bg); /* Slate 900 */
-  color: var(--accent); /* Dorado */
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
   border: none;
   padding: 10px 20px;
   border-radius: 12px;
@@ -137,14 +136,14 @@ table {
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  background-color: #1e293b;
+  filter: brightness(1.1);
 }
 
 /* Tabla Moderna */
 .table-container {
-  background: white;
+  background: var(--bg-card);
   border-radius: 20px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--border-color);
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
 }
@@ -155,34 +154,34 @@ table {
 }
 
 .mat-header-cell {
-  background: #f8fafc;
-  color: #64748b;
+  background: var(--table-header-bg);
+  color: var(--text-dim);
   font-weight: 700;
   text-transform: uppercase;
   font-size: 0.7rem;
   letter-spacing: 1px;
   padding: 16px !important;
-  border-bottom: 2px solid #f1f5f9;
+  border-bottom: 2px solid var(--table-border);
 }
 
 .mat-cell {
   padding: 16px !important;
-  color: var(--sidebar-bg);
-  border-bottom: 1px solid #f1f5f9;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--table-border);
 }
 
 .element-row:hover {
-  background-color: #f8fafc;
+  background-color: var(--table-row-hover);
 }
 
 /* Estilos de Celda */
 .id-badge {
-  background: #f1f5f9;
+  background: var(--badge-bg);
   padding: 4px 8px;
   border-radius: 6px;
   font-family: 'Courier New', Courier, monospace;
   font-weight: 600;
-  color: #475569;
+  color: var(--badge-text);
 }
 
 .text-bold { font-weight: 600; }
@@ -191,7 +190,7 @@ table {
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #64748b;
+  color: var(--text-dim);
   font-size: 0.9rem;
 }
 
@@ -204,7 +203,7 @@ table {
 
 .cantidad-text {
   font-weight: 800;
-  color: var(--sidebar-bg);
+  color: var(--text-primary);
 }
 
 /* Chips de Estado */
@@ -230,7 +229,7 @@ table {
 
 .action-btn {
   border: none;
-  background: #f1f5f9;
+  background: var(--action-btn-bg);
   width: 34px;
   height: 34px;
   border-radius: 8px;
@@ -239,7 +238,7 @@ table {
   align-items: center;
   justify-content: center;
   transition: all 0.2s;
-  color: #64748b;
+  color: var(--action-btn-text);
 }
 
 .edit:hover { background: rgba(201, 162, 39, 0.1); color: var(--accent); }
@@ -253,8 +252,8 @@ table {
   width: 60px;
   height: 60px;
   border-radius: 20px;
-  background: var(--sidebar-bg);
-  color: var(--accent);
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
   border: none;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   cursor: pointer;
@@ -268,5 +267,5 @@ table {
 .fab-button:hover {
   transform: scale(1.1) rotate(90deg);
   background: var(--accent);
-  color: var(--sidebar-bg);
+  filter: brightness(1.1);
 }

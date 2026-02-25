@@ -18,6 +18,19 @@ html {
   ));
 }
 
+// Tema oscuro
+html[data-theme="dark"] {
+  @include mat.theme((
+    color: (
+      primary: mat.$magenta-palette,
+      tertiary: mat.$violet-palette,
+      theme-type: dark,
+    ),
+    typography: Roboto,
+    density: 0,
+  ));
+}
+
 body {
   // Default the application to a light color theme. This can be changed to
   // `dark` to enable the dark color theme, or to `light dark` to defer to the
@@ -34,4 +47,8 @@ body {
   // Reset the user agent margin.
   margin: 0;
   height: 100%;
+  
+  // Transición suave al cambiar de tema
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
+

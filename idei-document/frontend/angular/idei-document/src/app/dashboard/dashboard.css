@@ -5,7 +5,11 @@
     gap: 32px;
     padding: 10px;
 }
-
+.dashboard-main {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
 /* Header Estilizado */
 .section-header {
     display: flex;
@@ -19,7 +23,7 @@
     margin: 0;
     font-size: 2rem;
     font-weight: 800;
-    color: var(--sidebar-bg);
+    color: var(--text-primary);
     letter-spacing: -1px;
 }
 
@@ -29,15 +33,79 @@
     font-size: 0.95rem;
 }
 
-/* Stats Section: Tarjetas con Acento */
+/* Stats Section*/
 .stats-section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 20px;
 }
 
+/* Alertas de vencimiento */
+.alert-section {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 20px;
+    display: grid;
+    gap: 16px;
+}
+
+.alert-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.alert-header h3 {
+    margin: 0;
+    color: var(--text-primary);
+}
+
+.alert-dismiss {
+    border: 1px solid var(--border-color);
+    background: transparent;
+    color: var(--text-dim);
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.alert-card {
+    border-radius: 16px;
+    padding: 14px 16px;
+    display: grid;
+    gap: 8px;
+}
+
+.alert-card p {
+    margin: 0;
+    font-weight: 700;
+}
+
+.alert-card ul {
+    margin: 0;
+    padding-left: 18px;
+    color: var(--text-primary);
+    display: grid;
+    gap: 4px;
+}
+
+.alert-danger {
+    background: rgba(239, 68, 68, 0.08);
+    border: 1px solid rgba(239, 68, 68, 0.35);
+    color: #b91c1c;
+}
+
+.alert-warning {
+    background: rgba(234, 179, 8, 0.12);
+    border: 1px solid rgba(234, 179, 8, 0.35);
+    color: #a16207;
+}
+
 .stat-card {
-    background: white;
+    background: var(--bg-card);
     padding: 24px;
     border-radius: 20px;
     border: 1px solid var(--border-color);
@@ -61,7 +129,6 @@
     bottom: 0;
     width: 5px;
     background: var(--accent);
-    /* Dorado IDEI */
 }
 
 .stat-card h3 {
@@ -76,7 +143,7 @@
 .stat-number {
     font-size: 2.8rem;
     font-weight: 800;
-    color: var(--sidebar-bg);
+    color: var(--text-primary);
     line-height: 1;
 }
 
@@ -101,7 +168,7 @@
 .search-box {
     flex: 1;
     min-width: 300px;
-    background: white;
+    background: var(--search-bg);
     border: 1px solid var(--border-color);
     border-radius: 12px;
     padding: 10px 16px;
@@ -113,7 +180,6 @@
 
 .search-box:focus-within {
     border-color: var(--accent);
-    box-shadow: 0 0 0 4px rgba(201, 162, 39, 0.1);
 }
 
 .search-box input {
@@ -121,14 +187,14 @@
     outline: none;
     width: 100%;
     font-size: 0.95rem;
-    color: var(--sidebar-bg);
+    color: var(--text-primary);
+    background: transparent;
 }
 
 .search-box mat-icon {
     color: var(--text-dim);
 }
 
-/* Botones con estilo IDEI */
 .btn-primary {
     background: var(--sidebar-bg);
     color: var(--accent);
@@ -149,9 +215,8 @@
     box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2);
 }
 
-/* Table Section */
 .table-container {
-    background: white;
+    background: var(--bg-card);
     border-radius: 24px;
     border: 1px solid var(--border-color);
     overflow: hidden;
@@ -163,7 +228,7 @@
 }
 
 .records-table th {
-    background: #f8fafc;
+    background: var(--table-header-bg);
     padding: 18px 24px;
     text-align: left;
     font-size: 0.75rem;
@@ -171,13 +236,13 @@
     text-transform: uppercase;
     color: var(--text-dim);
     letter-spacing: 1px;
-    border-bottom: 2px solid var(--bg-light);
+    border-bottom: 2px solid var(--table-border);
 }
 
 .records-table td {
     padding: 18px 24px;
-    border-bottom: 1px solid #f1f5f9;
-    color: var(--sidebar-bg);
+    border-bottom: 1px solid var(--table-border);
+    color: var(--text-primary);
     font-size: 0.95rem;
 }
 
@@ -186,7 +251,38 @@
 }
 
 .records-table tbody tr:hover {
-    background: #f8fafc;
+    background: var(--table-row-hover);
+}
+
+.records-table tbody tr.row-warning {
+    background: rgba(234, 179, 8, 0.12);
+}
+
+.records-table tbody tr.row-danger {
+    background: rgba(239, 68, 68, 0.12);
+}
+
+.vencimiento-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: 8px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    background: rgba(148, 163, 184, 0.15);
+    color: var(--text-dim);
+}
+
+.vencimiento-chip.chip-warning {
+    background: rgba(234, 179, 8, 0.2);
+    color: #a16207;
+}
+
+.vencimiento-chip.chip-danger {
+    background: rgba(239, 68, 68, 0.2);
+    color: #b91c1c;
 }
 
 /* Badge de Estado en Tabla */
@@ -200,13 +296,13 @@
 }
 
 .badge {
-    background: #f1f5f9;
+    background: var(--badge-bg);
     padding: 4px 8px;
     border-radius: 6px;
     font-family: monospace;
     font-weight: 800;
     font-size: medium;
-    color: #000000;
+    color: var(--badge-text);
 }
 
 /* Animations */
